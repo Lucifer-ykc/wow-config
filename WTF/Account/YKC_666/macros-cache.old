@@ -1,0 +1,79 @@
+VER 3 0000000000000001 "Decursive" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cast [@mouseover,nomod,exists] 解除诅咒;  [@mouseover,exists,mod:ctrl] 法术吸取; [@mouseover,exists,mod:shift] 变形术
+END
+VER 3 0000000000000002 "GJL打断" "134400"
+/cast [@raid10,harm][@raid9,harm][@raid8,harm][@raid7,harm][@raid6,harm][@raid5,harm][@raid4,harm][@raid3,harm][@raid2,harm][@raid1,harm] 法术反制
+END
+VER 3 0000000000000012 "ZC" "INV_MISC_QUESTIONMARK"
+#showtooltip  联盟军旗 
+/use [button:2] 雷矛战旗 
+/use [button:1] 联盟军旗
+END
+VER 3 0000000000000003 "上传" "136212"
+/script UploadSettings();
+END
+VER 3 0000000000000004 "下载" "136213"
+/script DownloadSettings();
+END
+VER 3 0000000000000005 "偷取" "INV_Misc_QuestionMark"
+#showtooltip 法术吸取
+/stopcasting
+/stopcasting
+/cast [@mouseover,exists,nodead]法术吸取;法术吸取
+END
+VER 3 0000000000000013 "光柱" "INV_MISC_QUESTIONMARK"
+/WM 6 
+/CWM 6
+END
+VER 3 0000000000000006 "同步" "136210"
+/console synchronizeMacros 1
+END
+VER 3 0000000000000007 "奥能" "INV_Misc_QuestionMark"
+#showtooltip 奥术强化
+/stopcasting
+/CAST 奥术强化
+/USE 10
+/use 闪耀法力宝石
+/cast 操控时间
+END
+VER 3 0000000000000008 "开组" "135998"
+/RW 在团的速度上YY，160975，25人频道，密码12345！！进来改按键发音！！  ！                                  注意！！按键发音！！
+END
+VER 3 0000000000000009 "手套" "877085"
+/USE 10
+END
+VER 3 000000000000000A "火能" "132093"
+/stopcasting
+/cast 冰冷血脉
+/cast 燃烧
+/USE 13
+/USE 时光之主手套
+END
+VER 3 000000000000000B "燃烧" "INV_Misc_QuestionMark"
+#showtooltip 燃烧
+/stopcasting
+/stopcasting
+/use 13
+/use 14
+/cast 燃烧
+END
+VER 3 000000000000000C "玩坐骑" "134400"
+/mountspecial
+END
+VER 3 000000000000000D "疯子成就" "252270"
+/script DEFAULT_CHAT_FRAME:AddMessage("NGA数据库 - wowdb.178.com: "..GetAchievementLink(2336));
+END
+VER 3 000000000000000E "看数据" "134400"
+/script if UnitSex("target")==3 then g="女" else g="男" end;print(""..UnitName("target").." 职业:"..UnitClass("target").." 血量"..UnitHealth("target").." 种族:"..UnitRace("target").." 性别:"..g.."")
+/script UIErrorsFrame:Hide();  
+END
+VER 3 000000000000000F "腰带" "880179"
+/USE 6
+END
+VER 3 0000000000000010 "视野" "136220"
+/script SetCVar("cameraDistanceMax", 50) 
+END
+VER 3 0000000000000011 "集火" "134400"
+/协助 浪漫的云
+END

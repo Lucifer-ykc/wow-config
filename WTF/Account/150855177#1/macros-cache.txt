@@ -1,0 +1,69 @@
+VER 3 0000000000000013 "1" "ABILITY_AMBUSH"
+/DBM PULL 10
+END
+VER 3 0000000000000008 "1" "Ability_Ambush"
+/RW 集合集合速度集合！！
+END
+VER 3 000000000000000B "1" "INV_Misc_QuestionMark"
+             {rt7}{rt7}{rt7}{rt7}{rt7} 
+         {rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7} 
+         {rt6}{rt6}{rt6}{rt2}{rt2}{rt6}{rt2} 
+     {rt6}{rt2}{rt6}{rt2}{rt2}{rt2}{rt6}{rt2}{rt2}{rt2}
+END
+VER 3 000000000000000C "2" "INV_Misc_QuestionMark"
+     {rt6}{rt2}{rt6}{rt6}{rt2}{rt2}{rt2}{rt6}{rt2}{rt2}{rt2} 
+     {rt6}{rt6}{rt2}{rt2}{rt2}{rt2}{rt6}{rt6}{rt6}{rt6} 
+            {rt2}{rt2}{rt2}{rt2}{rt2}{rt2}{rt2}
+        {rt6}{rt6}{rt7}{rt6}{rt6}{rt6}
+END
+VER 3 000000000000000D "3" "INV_Misc_QuestionMark"
+     {rt6}{rt6}{rt6}{rt7}{rt6}{rt6}{rt7}{rt6}{rt6}{rt6} 
+ {rt6}{rt6}{rt6}{rt6}{rt7}{rt7}{rt7}{rt7}{rt6}{rt6}{rt6}{rt6} 
+ {rt2}{rt2}{rt6}{rt7}{rt2}{rt7}{rt7}{rt2}{rt7}{rt6}{rt2}{rt2} 
+ {rt2}{rt2}{rt2}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt2}{rt2}{rt2}
+END
+VER 3 0000000000000005 "3步老板" "INV_Misc_QuestionMark"
+/2 周日25ICCG团需求橙斧三步曲老板，8H12团队为您服务，有意思的请联系我，另出售各种277散件和印记，质量保证一份价钱一份货呀~
+END
+VER 3 000000000000000E "4" "INV_Misc_QuestionMark"
+ {rt2}{rt2}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt7}{rt2}{rt2} 
+        {rt7}{rt7}{rt7}      {rt7}{rt7}{rt7} 
+     {rt6}{rt6}{rt6}             {rt6}{rt6}{rt6} 
+ {rt6}{rt6}{rt6}{rt6}             {rt6}{rt6}{rt6}{rt6}
+END
+VER 3 0000000000000010 "BF_Mount" "ability_mount_charger"
+/bfmount
+END
+VER 3 0000000000000012 "BF_Pet" "achievement_worldevent_brewmaster"
+/BFPET
+END
+VER 3 0000000000000001 "Decursive" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cast [@mouseover,nomod,exists] 清洁术;  [@mouseover,exists,mod:ctrl] 清洁术; [@mouseover,exists,mod:shift] 清洁术
+END
+VER 3 000000000000000A "G" "INV_Misc_QuestionMark"
+/5 1W5收点卡，有卖的M，公会担保~ 
+END
+VER 3 0000000000000007 "YY" "Ability_Hunter_EagleEye"
+/RW 在团的速度上YY，160975，25人频道，密码12345！！进来改按键发音！！  ！！                  注意！！按键发音！！
+END
+VER 3 0000000000000011 "坐骑" "Ability_Mount_Charger"
+/RandomMount
+END
+VER 3 0000000000000014 "看数据" "INV_MISC_QUESTIONMARK"
+/script if UnitSex("target")==3 then g="女" else g="男" end;print(""..UnitName("target").." 职业:"..UnitClass("target").." 血量"..UnitHealth("target").." 种族:"..UnitRace("target").." 性别:"..g.."")
+/script UIErrorsFrame:Hide();  
+END
+VER 3 0000000000000015 "组" "INV_MISC_QUESTIONMARK"
+/inv  深邃中璀璨-符文图腾
+/inv 黯寂-符文图腾
+END
+VER 3 0000000000000006 "组人" "INV_Misc_QuestionMark"
+/G 二团SW开组了！！速度打1进组！修好装备，买好药剂合剂FM油，带好烹饪，材料，速度进组！！在组的速度退组，在团的速度制造团灭，工会活动第一！！7点30算集合分！
+END
+VER 3 0000000000000002 "骑" "INV_Misc_QuestionMark"
+#showtooltip [flyable]迅捷紫色驭风者;[noflyable] 召唤军马
+/castrandom [nomounted, flyable] 迅捷紫色驭风者,青铜幼龙
+/castrandom  [nomounted, noflyable] 召唤军马,黑色战熊
+/dismount [mounted]
+END

@@ -1,0 +1,32 @@
+## Interface: 80100
+## Title: SavedInstances
+## Title-zhCN: [大脚][集]账号进度管家
+## Title-zhTW: [大腳][集]賬號進度管家
+## Notes: Tracks Raid, Instance, World Boss lockouts for all your characters, daily/weekly quests, currencies, trade cooldowns, and more!
+## Notes-zhCN: |cff00ff00SavedInstances|r|n|cffbc8f8f汇总显示账号下角色的副本进度,日常任务,代币等信息。|r
+## Notes-zhTW: |cff00ff00SavedInstances|r|n|cffbc8f8f匯總顯示賬號下角色的副本進度,日常任務,代幣等信息。|r
+## Author: LiangYuxuan
+## Version: 8.0.8
+## X-ReleaseDate: 2018-12-18T7:58:57Z
+## X-License: All Rights Reserved
+## X-Category: Raid
+## OptionalDeps: Ace3, CallbackHandler-1.0, LibDataBroker-1.1, LibDBIcon-1.0, LibQTip-1.0
+## SavedVariables: SavedInstancesDB
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: delayed
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+
+locale.lua
+
+Core.lua
+Tradeskills.lua
+LFR.lua
+Emissary.lua
+WorldBosses.lua
+Quests.lua
+Currency.lua
+MythicPlus.lua
+SavedInstances.lua
+
+config.lua

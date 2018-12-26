@@ -1,0 +1,13 @@
+## Interface: 80100
+## Title: AzeriteTooltip
+## Title-zhCN: [大脚][集]特质装备技能提示
+## Title-zhTW: [大腳][集]特質裝備技能提示
+## Notes: Lightweight addon that shows azerite traits in the tooltip.
+## Notes-zhCN: |cff00ff00AzeriteTooltip|r
+## Notes-zhTW: |cff00ff00AzeriteTooltip|r
+## Version: 1.61
+## Author: Kygo
+## SavedVariables: AzeriteTooltipDB
+## X-Revision: BigFoot
+
+AzeriteTooltip.lua

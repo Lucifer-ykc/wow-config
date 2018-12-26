@@ -1,0 +1,10 @@
+VER 3 0100000000000003 "消散" "INV_MISC_QUESTIONMARK"
+#showtooltip 消散
+/stopcasting
+/cast 消散
+/cancelaura 消散
+END
+VER 3 0100000000000004 "灵魂护壳" "Ability_Shaman_AstralShift"
+/use 10
+/cast 灵魂护壳
+END

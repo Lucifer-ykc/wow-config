@@ -1,0 +1,207 @@
+VER 3 0000000000000021 " " "ABILITY_WARRIOR_CHARGE"
+#showtooltip 冲锋
+/cast [mod:alt]英勇飞跃;[harm]冲锋;[help]援护
+/cast 断筋
+END
+VER 3 0000000000000020 " " "INV_SWORD_27"
+/cast 嘲讽
+END
+VER 3 000000000000001F " " "ABILITY_DEFEND"
+#showtooltip 盾牌格挡
+/cast 盾牌格挡
+/use 10
+/cast 盾牌猛击
+END
+VER 3 0000000000000022 " 10%" "ABILITY_WARRIOR_FOCUSEDRAGE"
+#showtooltip 狂怒回复
+/cast 狂暴之怒
+/cast 狂怒回复
+END
+VER 3 0000000000000008 "1" "Ability_Ambush"
+/DBM PULL 10
+END
+VER 3 0000000000000023 "1次-13" "ABILITY_WARRIOR_SHIELDWALL"
+/cast 盾墙
+/cast 挫志怒吼
+/cast 破釜沉舟
+/cast 鲁莽
+/cast 浴血奋战
+/cast 天神下凡
+/cast 狂妄之诅咒
+/cast 魔古之力药水
+END
+VER 3 0000000000000024 "1次-9" "ABILITY_WARRIOR_SHIELDWALL"
+/cast 盾墙
+/cast 
+/cast 破釜沉舟
+/cast 鲁莽
+/cast 浴血奋战
+/cast 鲁克的不幸护符
+END
+VER 3 000000000000003E "a1" "INV_MISC_QUESTIONMARK"
+/run LeaveBattlefield()
+END
+VER 3 000000000000001E "BF_Mount" "ability_mount_charger"
+/bfmount
+END
+VER 3 0000000000000025 "H2" "INV_AXE_66"
+/stopcasting
+/target 
+/cast 英勇投掷
+/cast 投掷
+/targetlasttarget
+END
+VER 3 0000000000000026 "KB" "ABILITY_CRITICALSTRIKE"
+/cast 鲁莽
+/cast 
+/use   10
+/cast  浴血奋战
+/cast 佐伊德的熔岩手甲
+END
+VER 3 0000000000000027 "反射" "ABILITY_WARRIOR_SHIELDREFLECTION"
+/castsequence reset=1 法术反射 , 群体反射, 群体反射，群体反射，群体反射，群体反射
+END
+VER 3 0000000000000028 "天神下凡" "WARRIOR_TALENT_ICON_AVATAR"
+/cast 天神下凡
+/cast 颅骨战旗
+/cast 古代精钢手甲
+/cast 鲁莽
+END
+VER 3 0000000000000029 "字体取消" "ACHIEVEMENT_GUILDPERK_GMAIL"
+/script UIErrorsFrame:Hide()
+END
+VER 3 000000000000002A "巨人" "INV_MISC_QUESTIONMARK"
+/cast 巨人打击
+/cast 佐伊德的熔岩手甲
+END
+VER 3 000000000000002B "巨龙" "INV_MISC_QUESTIONMARK"
+#showtooltip 巨龙怒吼
+/castsequence reset=0 0,0,0,巨龙怒吼
+/castsequence reset=0 0,0,颅骨战旗
+/castsequence reset=0 0,狂暴之怒
+/cast 鲁莽
+END
+VER 3 000000000000002D "挫志战旗" "DEMORALIZING_BANNER"
+#showtooltips 挫志战旗
+/cast 挫志战旗
+/s 我已施放挫志战旗<<<<10...
+/in 7 /s 3...
+/in 8 /s 2...
+/in 9 /s 1...
+/in 10 /s 挫志战旗结束
+END
+VER 3 000000000000002C "挫志战旗" "DEMORALIZING_BANNER"
+#showtooltips 挫志战旗
+/cast 挫志战旗
+/s 我已施放挫志战旗<<<<15...
+/in 12 /s 3...
+/in 13 /s 2...
+/in 14 /s 1...
+/in 15 /s 挫志战旗结束
+END
+VER 3 000000000000002E "捍卫" "ABILITY_WARRIOR_VICTORYRUSH"
+#showtooltip 援护
+/tar player
+/targetlasttarget
+/targetexact [nohelp]挫志战旗
+/targetexact [nohelp]挑战战旗
+/targetexact [nohelp]颅骨战旗
+/targetfriend [nohelp]
+/use [help]援护
+/targetlasttarget
+/targetlasttarget [help]
+/castsequence reset=180 挫志战旗,挑战战旗
+END
+VER 3 000000000000002F "斩杀饰品" "INV_SWORD_48"
+/cast 斩杀
+/cast 灵魂壁障
+END
+VER 3 0000000000000030 "焦点打断" "INV_GAUNTLETS_04"
+#showtooltip [target=focus,harm] [] 拳击 
+/stopcasting 
+/clearfocus [modifier:shift][target=focus,dead][target=focus,noexists] 
+/focus [target=focus,noexists] 
+/cast [target=focus] 拳击
+END
+VER 3 0000000000000031 "爆发" "ABILITY_CRITICALSTRIKE"
+/cast 鲁莽
+/cast 浴血奋战
+/cast 天神下凡
+/use 10
+END
+VER 3 0000000000000032 "狂暴" "SPELL_NATURE_ANCESTRALGUARDIAN"
+/cast 狂暴之怒
+/cast 战斗怒吼
+/use 10
+END
+VER 3 000000000000001C "玩坐骑" "INV_MISC_QUESTIONMARK"
+/mountspecial
+END
+VER 3 0000000000000033 "瓦解" "WARRIOR_DISRUPTINGSHOUT"
+/cast 瓦解怒吼
+/说  已经2次打断瓦解已经使用，下次是我的践踏！
+END
+VER 3 000000000000001D "看数据" "INV_MISC_QUESTIONMARK"
+/script if UnitSex("target")==3 then g="女" else g="男" end;print(""..UnitName("target").." 职业:"..UnitClass("target").." 血量"..UnitHealth("target").." 种族:"..UnitRace("target").." 性别:"..g.."")
+/script UIErrorsFrame:Hide();  
+END
+VER 3 0000000000000034 "破" "SPELL_HOLY_ASHESTOASHES"
+#showtooltip 破釜沉舟
+/castsequence reset=0 0,0,0,狂暴之怒
+/castsequence reset=0 0,0,狂怒回复
+/castsequence reset=0 0,治疗石
+/cast 破釜沉舟
+END
+VER 3 0000000000000035 "紫光柱" "INV_MISC_SUMMERFEST_BRAZIERORANGE"
+/click CompactRaidFrameManagerDisplayFrameLeaderOptionsRaidWorldMarkerButton
+/click DropDownList1Button3
+END
+VER 3 0000000000000036 "红光柱" "INV_MISC_SUMMERFEST_BRAZIERRED"
+/click CompactRaidFrameManagerDisplayFrameLeaderOptionsRaidWorldMarkerButton
+/click DropDownList1Button4
+END
+VER 3 0000000000000037 "绿光柱" "INV_MISC_SUMMERFEST_BRAZIERGREEN"
+/click CompactRaidFrameManagerDisplayFrameLeaderOptionsRaidWorldMarkerButton
+/click DropDownList1Button2
+END
+VER 3 0000000000000038 "群反" "INV_MISC_QUESTIONMARK"
+/Y 群体反射开启，5秒后结束。
+#showtooltip
+/cast 群体反射
+/in 3 /Y 3
+/in 4 /Y 2
+/in 5 /Y 1
+/in 6 /Y 群体反射已结束
+END
+VER 3 0000000000000039 "蓝光柱" "INV_MISC_SUMMERFEST_BRAZIERBLUE"
+/click CompactRaidFrameManagerDisplayFrameLeaderOptionsRaidWorldMarkerButton
+/click DropDownList1Button1
+END
+VER 3 000000000000003A "警戒" "ABILITY_WARRIOR_VIGILANCE"
+/cast 警戒
+/script SendChatMessage("<%t>我已给你上 警戒12秒降低30%伤害","whisper",GetDefaultLanguage("target"),UnitName("target")) 
+END
+VER 3 000000000000003B "践踏" "ABILITY_WARSTOMP"
+/cast 战争践踏
+/说    已经3次打断，已经践踏！下次个人断条
+END
+VER 3 000000000000000A "运行" "INV_Misc_QuestionMark"
+/cast 复活战斗宠物
+/tar 幸运的小艺
+/run local c=C_PetBattles;local a,b,c,d=c.UseAbility,c.GetAbilityState,c.ChangePet,c.IsInBattle;if d() and not PetBattleUtil_PetHasAura(2,1,918) then a(2)end;a(1)a(3)if not(b(1)and b(3))then c(1)c(2)c(3)a(2)end
+END
+VER 3 000000000000003C "雷霆" "SPELL_NATURE_THUNDERCLAP"
+#showtooltip 雷霆一击
+/cast 雷霆一击
+/cast 挑战战旗
+END
+VER 3 000000000000003D "震荡波" "ABILITY_WARRIOR_SHOCKWAVE"
+/Y 震荡波开启，4秒后结束。
+#showtooltip
+/cast 震荡波
+/in 1 /Y 4
+/in 2 /Y 3
+/in 3 /Y 2
+/in 4 /Y 1
+/in 5 /Y震荡波已结束
+END

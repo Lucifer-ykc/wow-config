@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
+    <AddOn displayName="MySlot按键配置导入导出插件" img="/data/wow/675/ui_logo.jpg" info="ui/675" name="MySlot按键配置导入导出插件" package="down/675/12687/Myslot-v5.2_.6_.zip" update="2018-07-27" version="v5.2.6" />
+</AddOnList>

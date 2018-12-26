@@ -1,0 +1,79 @@
+VER 3 0100000000000001 "JY" "INV_Misc_QuestionMark"
+/target 炉渣
+/startattack 
+/castsequence reset=8/combat 奉献,正义之锤,圣光审判,神圣之盾,正义之锤,奉献,圣光审判,神圣之盾,正义之锤,奉献,圣光审判,正义之锤,神圣之盾
+END
+VER 3 010000000000000C "mal1" "INV_MISC_QUESTIONMARK"
+/use 鲁克的不幸护符
+/cast 神圣复仇者
+/cast 炽热防御者
+/cast 复仇之怒
+/RW 压制灵魂链！ 压制灵魂链！
+/RW 压制灵魂链！ 压制灵魂链！
+/RW 压制灵魂链！ 压制灵魂链！
+/RW 压制灵魂链！ 压制灵魂链！
+/RW 压制灵魂链！ 压制灵魂链！
+/RW 压制灵魂链！ 压制灵魂链！
+END
+VER 3 010000000000000D "mal2" "INV_MISC_QUESTIONMARK"
+/cast 远古列王守卫
+/cast 圣佑术
+/cast 处决审判
+/RW 警戒罩子！警戒罩子！
+/RW 警戒罩子！警戒罩子！
+/RW 警戒罩子！警戒罩子！
+/RW 警戒罩子！警戒罩子！
+/RW 警戒罩子！警戒罩子！
+END
+VER 3 0100000000000006 "全开" "INV_Misc_QuestionMark"
+/cast 炽热防御者
+/cast 圣佑术
+/cast 远古列王守卫
+/cast 虔诚光环
+/use 鲁克的不幸护符
+END
+VER 3 0100000000000007 "圣光" "INV_Misc_QuestionMark"
+#showtooltip 审判
+/target 寒冰之球
+/cast 审判
+/script SetRaidTarget("target",8)
+END
+VER 3 0100000000000009 "拖鞋" "INV_MISC_QUESTIONMARK"
+#showtooltip 复仇者之盾
+/tar player 
+/targetlasttarget 
+/tar 寒冰之球 
+/cast 复仇者之盾 
+/targetlasttarget 
+/targetlasttarget [help]
+/startattack 
+END
+VER 3 0100000000000008 "智慧" "INV_Misc_QuestionMark"
+#showtooltip 审判
+/tar player 
+/targetlasttarget 
+/tar 寒冰之球 
+/cast 审判 
+/targetlasttarget 
+/targetlasttarget [help] 
+/startattack
+/script SetRaidTarget("target",8)
+END
+VER 3 0100000000000004 "正义" "INV_Misc_QuestionMark"
+/cancelaura 正义之怒
+END
+VER 3 0100000000000003 "盾击" "INV_Misc_QuestionMark"
+/cancelaura 正义盾击
+END
+VER 3 010000000000000A "雷神" "INV_MISC_QUESTIONMARK"
+#showtooltip 审判
+/tar player 
+/targetlasttarget 
+/tar 嗡鸣水晶
+/tar 恐角之魂 
+/cast 审判 
+/targetlasttarget 
+/targetlasttarget [help] 
+/startattack
+/script SetRaidTarget("target",8)
+END

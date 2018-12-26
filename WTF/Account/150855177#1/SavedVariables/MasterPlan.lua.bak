@@ -1,0 +1,34 @@
+
+MasterPlanAG = {
+	["燃烧之刃"] = {
+		["富可敵會"] = {
+			["class"] = "PRIEST",
+			["summary"] = {
+				["inProgress"] = {
+					[2] = 1468091391,
+				},
+			},
+			["faction"] = "Horde",
+		},
+	},
+	["诺兹多姆"] = {
+		["涅槃泣血"] = {
+			["class"] = "PALADIN",
+			["summary"] = {
+				["tt2"] = true,
+				["tt1"] = true,
+				["ti1"] = 118531,
+				["inProgress"] = {
+					[324] = 1467736385,
+					[450] = 1467736382,
+					[334] = 1467739990,
+					[200] = 1467723343,
+				},
+				["ti2"] = 122486,
+			},
+			["faction"] = "Alliance",
+		},
+	},
+}
+SV_GarrisonMissionManager = {
+}

@@ -1,0 +1,171 @@
+
+ItemSourceDB = {
+}
+ObjectLocationDB = {
+}
+CreatureLocationDB = {
+}
+CreatureDB = {
+}
+QuestDB = {
+}
+QuestCompleteDB = {
+}
+QuestEventDB = {
+}
+SkillSourceDB = {
+}
+BigFootBot_Version = {
+}
+BigFootBot_Info = nil
+PlayersDB = {
+	["误了青春丶:格瑞姆巴托"] = {
+		["race"] = 6,
+		["name"] = "误了青春丶",
+		["guild"] = "Twinkle",
+		["level"] = 120,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "格瑞姆巴托",
+	},
+	["薛仁贵:血环"] = {
+		["race"] = 2,
+		["name"] = "薛仁贵",
+		["guild"] = "有谁共鸣",
+		["level"] = 120,
+		["gender"] = 2,
+		["class"] = 2,
+		["server"] = "血环",
+	},
+	["灬凯缌雪灬:尘风峡谷"] = {
+		["race"] = 3,
+		["name"] = "灬凯缌雪灬",
+		["level"] = 100,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "尘风峡谷",
+	},
+	["Auditores:艾欧娜尔"] = {
+		["race"] = 17,
+		["name"] = "Auditores",
+		["guild"] = "大米修理费",
+		["level"] = 120,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "艾欧娜尔",
+	},
+	["小粗腿浪蹄子:白银之手"] = {
+		["race"] = 10,
+		["name"] = "小粗腿浪蹄子",
+		["level"] = 111,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "白银之手",
+	},
+	["火云蝎小欧:克尔苏加德"] = {
+		["race"] = 4,
+		["name"] = "火云蝎小欧",
+		["guild"] = "那些年我们一起玩过 致敬青春 匆匆那七零年代",
+		["level"] = 120,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "克尔苏加德",
+	},
+	["淡月星瞳:诺兹多姆"] = {
+		["race"] = 4,
+		["name"] = "淡月星瞳",
+		["level"] = 110,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "诺兹多姆",
+	},
+	["毒吻:萨尔"] = {
+		["race"] = 3,
+		["name"] = "毒吻",
+		["guild"] = "纯属虚构",
+		["level"] = 111,
+		["gender"] = 2,
+		["class"] = 6,
+		["server"] = "萨尔",
+	},
+	["冰凌金蝉:甜水绿洲"] = {
+		["race"] = 4,
+		["name"] = "冰凌金蝉",
+		["guild"] = "红河印象",
+		["level"] = 101,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "甜水绿洲",
+	},
+	["兜兜咘:格瑞姆巴托"] = {
+		["race"] = 4,
+		["name"] = "兜兜咘",
+		["guild"] = "路过人间",
+		["level"] = 120,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "格瑞姆巴托",
+	},
+	["细雨无私:桑德兰"] = {
+		["race"] = 7,
+		["name"] = "细雨无私",
+		["guild"] = "Enjoy Glory",
+		["level"] = 120,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "桑德兰",
+	},
+	["仧叉冰:燃烧之刃"] = {
+		["race"] = 16,
+		["name"] = "仧叉冰",
+		["level"] = 120,
+		["gender"] = 2,
+		["class"] = 8,
+		["server"] = "燃烧之刃",
+	},
+	["赵沟渠:国王之谷"] = {
+		["race"] = 7,
+		["name"] = "赵沟渠",
+		["guild"] = "sweet time",
+		["level"] = 113,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "国王之谷",
+	},
+	["小满:冰霜之刃"] = {
+		["race"] = 4,
+		["name"] = "小满",
+		["level"] = 106,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "冰霜之刃",
+	},
+	["富可敵會:燃烧之刃"] = {
+		["race"] = 4,
+		["name"] = "富可敵會",
+		["guild"] = "国境之南",
+		["level"] = 102,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "燃烧之刃",
+	},
+}
+UtilDB = {
+	["M"] = {
+		["NumSysUnread"] = 0,
+		["MD5"] = "172317231117690340568722732883546876055",
+		["NumNormalRead"] = 1,
+		["NumSysRead"] = 0,
+		["NumNormalUnread"] = 0,
+	},
+}
+NPCMarkCollectionDB = {
+}
+BigFootBot_collectData = {
+	["WildBattlePetData"] = {
+	},
+	["CombatBattlePetData"] = {
+	},
+}
+SpamChatDB = {
+}

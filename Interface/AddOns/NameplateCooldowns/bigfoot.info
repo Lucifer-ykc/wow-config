@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
+    <AddOn displayName="NameplateCooldowns姓名版显示敌对技能冷却" img="/data/wow/830/ui_logo.jpg" info="ui/830" name="NameplateCooldowns姓名版显示敌对技能冷却" package="down/830/13005/NameplateCooldowns-80000.15-release_.zip" update="2018-11-28" version="80000.15-release" />
+</AddOnList>

@@ -1,0 +1,63 @@
+VER 3 0100000000000001 "zoo" "INV_Misc_QuestionMark"
+#showtooltip 变形术(黑猫)
+/stopcasting
+/castrandom  [target=focus,exists]  变形术(绵羊),变形术(猪),变形术(乌龟),变形术(兔子),变形术(黑猫),变形术(大黄蜂); 变形术(绵羊),变形术(猪),变形术(乌龟),变形术(兔子),变形术(黑猫),变形术(大黄蜂);
+/script  SetRaidTarget("target",2)
+END
+VER 3 0100000000000002 "偷" "INV_Misc_QuestionMark"
+#showtooltip 法术吸取
+/stopcasting 
+/cast 法术吸取
+END
+VER 3 0100000000000003 "冰枪" "INV_Misc_QuestionMark"
+#showtooltip 冰枪术
+/Cast [modifier:ctrl] 霜火之箭;冰枪术
+END
+VER 3 0100000000000004 "冰箭" "INV_Misc_QuestionMark"
+#showtooltip 寒冰箭
+/CAST 寒冰箭
+/petattack
+END
+VER 3 0100000000000005 "冰箱" "INV_Misc_QuestionMark"
+#showtooltip 寒冰屏障
+/stopcasting
+/cast 寒冰屏障
+/cancelaura 寒冰屏障
+END
+VER 3 0100000000000006 "冲击" "INV_Misc_QuestionMark"
+#showtooltip 火焰冲击  
+/cast [modifier:ctrl,target=focus,exists,harm] 火焰冲击; 火焰冲击
+END
+VER 3 0100000000000007 "反制" "INV_Misc_QuestionMark"
+#showtooltip 法术反制 
+/stopcasting 
+/cast [target=focus,exists,harm] 法术反制; 法术反制
+/USE 大火力推膛枪
+END
+VER 3 010000000000000C "取消" "INV_MISC_QUESTIONMARK"
+/cancelaura 寒冰护体
+/cancelaura 烈焰护体
+/cancelaura 棱光屏障
+/cancelaura 燃烧
+/cancelaura 时光护盾
+/cancelaura 炽热连击
+END
+VER 3 0100000000000008 "水BB" "INV_Misc_QuestionMark"
+#showtooltip 召唤水元素 
+/cast [nopet] 召唤水元素
+/click [pet] PetActionButton5
+END
+VER 3 0100000000000009 "灼烧" "INV_Misc_QuestionMark"
+#showtooltip 灼烧 
+/cast [modifier:ctrl,target=focus,exists,harm] 灼烧; 灼烧
+END
+VER 3 010000000000000A "炸弹" "INV_Misc_QuestionMark"
+#showtooltip 活动炸弹
+/cast [target=mouseover,nomodifier,exists,harm,nodead] 活动炸弹; 活动炸弹
+/script SetRaidTarget("target",8)
+END
+VER 3 010000000000000B "黑冰" "INV_Misc_QuestionMark"
+#showtooltip 黑冰箭
+/CAST 黑冰箭
+/petattack
+END

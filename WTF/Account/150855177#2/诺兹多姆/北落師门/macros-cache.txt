@@ -1,0 +1,97 @@
+VER 3 0100000000000015 "1" "INV_MISC_QUESTIONMARK"
+/use 13
+/cast 破釜沉舟
+/cast 挫志怒吼
+END
+VER 3 010000000000001A "HW" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/目标 挫志战旗
+/目标 挑战战旗
+/目标 颅骨战旗
+/cast 捍卫
+/targetlasttarget
+/castsequence 挫志战旗,挑战战旗
+END
+VER 3 010000000000001B "PVP致死" "INV_MISC_QUESTIONMARK"
+/castsequence reset=1 致死打击,  , 猛击, 猛击
+/cast 上古屠夫护手
+END
+VER 3 010000000000001C "PVP输出" "INV_MISC_QUESTIONMARK"
+#showtooltip 压制
+/startattack
+/console Sound_EnableSFX 0
+/castsequence reset=0 0,0,压制,0
+/castsequence reset=0 0,巨人打击,0,0
+/cast 致死打击
+/console Sound_EnableSFX 1
+END
+VER 3 010000000000001D "Wol" "SPELL_HOLY_CHAMPIONSBOND"
+/combatlog
+END
+VER 3 0100000000000013 "·" "INV_Misc_QuestionMark"
+#showtooltip 冲锋
+/cast [target=focus,exists,harm] 冲锋; 冲锋
+END
+VER 3 0100000000000016 "伐木机" "INV_MISC_QUESTIONMARK"
+/tar 自动伐木机
+END
+VER 3 010000000000001E "倒数10秒开怪" "ACHIEVEMENT_GUILDPERK_HONORABLEMENTION_RANK2"
+/DBM PULL7
+END
+VER 3 010000000000001F "倒数32" "SPELL_SHADOW_CHARM"
+/DBM PULL32
+/script Stopwatch_Play()
+/sw 32
+END
+VER 3 0100000000000020 "打断" "INV_GAUNTLETS_04"
+/cast 拳击
+/cancelaura 保护之手
+END
+VER 3 0100000000000021 "打断保护" "INV_GAUNTLETS_04"
+#showtooltip 拳击
+/cast 拳击
+/cancelaura 保护之手
+/click ExtraActionButton1
+/cast 鲁克的不幸护符
+/cast
+/说  打断3结束
+END
+VER 3 0100000000000022 "挫志怒吼" "ABILITY_WARRIOR_WARCRY"
+#showtooltip 挫志怒吼
+/cast 挫志怒吼
+/cast 
+/cast 挫志战旗
+END
+VER 3 0100000000000023 "挫志战旗" "DEMORALIZING_BANNER"
+/cast 挫志战旗
+/raid {rt1}挫志战旗{rt1}开启，30码范围内伤害减免10%，持续15秒。
+END
+VER 3 0100000000000024 "斩杀" "INV_SWORD_48"
+#showtooltip 斩杀
+/startattack
+/console Sound_EnableSFX 0
+/castsequence reset=0 0,0,0,压制
+/castsequence reset=0 0,0,致死打击,0
+/castsequence reset=0 0,巨人打击,0,0
+/cast 斩杀
+/施放 狂暴之怒
+/console Sound_EnableSFX 1
+END
+VER 3 0100000000000014 "蝎子" "WARRIOR_TALENT_ICON_AVATAR"
+/cast 天神下凡
+/cast 盾墙
+/cast 破釜沉舟
+/cast 鲁莽
+END
+VER 3 0100000000000017 "颅骨战旗" "WARRIOR_SKULLBANNER"
+/cast 颅骨战旗
+/raid {rt1}颅骨战旗{rt1}开启，暴击伤害提高20%，持续10秒。
+END
+VER 3 0100000000000018 "飞跃" "ABILITY_HEROICLEAP"
+#showtooltip
+/cast !英勇飞跃
+END
+VER 3 0100000000000019 "黄光柱" "INV_SHIRT_YELLOW_01"
+/click CompactRaidFrameManagerDisplayFrameLeaderOptionsRaidWorldMarkerButton
+/click DropDownList1Button5
+END

@@ -1,0 +1,30 @@
+
+HPetSaves = {
+	["OnlyInPetInfo"] = false,
+	["FastForfeit"] = true,
+	["ShowBandageButton"] = false,
+	["ShowGrowInfo"] = true,
+	["ShowBreedID"] = false,
+	["god"] = false,
+	["ShowMsg"] = true,
+	["Sound"] = true,
+	["OtherAbility"] = false,
+	["AbScale"] = 0.8,
+	["ShowAbilitysName"] = false,
+	["LockAbilitys"] = false,
+	["PetGreedInfo"] = true,
+	["AllyAbility"] = false,
+	["AutoSaveAbility"] = true,
+	["BreedIDStyle"] = true,
+	["AbPoint"] = {
+	},
+	["Ver"] = "2.2.13",
+	["PetAbilitys"] = {
+	},
+	["HighGlow"] = true,
+	["MiniTip"] = false,
+	["Tooltip"] = true,
+	["ShowHideID"] = true,
+	["EnemyAbility"] = true,
+	["PetBreedInfo"] = false,
+}

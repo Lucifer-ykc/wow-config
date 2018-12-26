@@ -1,0 +1,122 @@
+
+ItemSourceDB = {
+}
+ObjectLocationDB = {
+}
+CreatureLocationDB = {
+}
+CreatureDB = {
+}
+QuestDB = {
+}
+QuestCompleteDB = {
+}
+QuestEventDB = {
+}
+SkillSourceDB = {
+}
+BigFootBot_Version = {
+}
+BigFootBot_Info = nil
+PlayersDB = {
+	["篬井空的恶念:自由之风"] = {
+		["race"] = 6,
+		["name"] = "篬井空的恶念",
+		["guild"] = "梦想",
+		["level"] = 120,
+		["gender"] = 3,
+		["class"] = 1,
+		["server"] = "自由之风",
+	},
+}
+UtilDB = {
+	["M"] = {
+		["NumSysUnread"] = 0,
+		["MD5"] = "1891084883123534831771678600416906504",
+		["NumNormalRead"] = 4,
+		["NumSysRead"] = 0,
+		["NumNormalUnread"] = 0,
+	},
+}
+NPCMarkCollectionDB = {
+}
+BigFootBot_collectData = {
+	["CombatBattlePetData"] = {
+		["布鲁斯"] = {
+			["PetType"] = 9,
+			["enemyPetType"] = 10,
+			["StyPetType"] = "水栖",
+			["name"] = "布鲁斯",
+			["health"] = 1952,
+			["speed"] = 341,
+			["speciesName"] = "布鲁斯",
+			["level"] = 25,
+			["maxHealth"] = 1952,
+			["attack"] = 289,
+		},
+		["小型扭曲涡流"] = {
+			["PetType"] = 9,
+			["enemyPetType"] = 9,
+			["StyPetType"] = "水栖",
+			["health"] = 1546,
+			["name"] = "小型扭曲涡流",
+			["speciesName"] = "小型扭曲涡流",
+			["speed"] = 301,
+			["level"] = 25,
+			["maxHealth"] = 1546,
+			["attack"] = 330,
+		},
+		["小白鲨"] = {
+			["PetType"] = 8,
+			["enemyPetType"] = 10,
+			["StyPetType"] = "野兽",
+			["name"] = "小白鲨",
+			["health"] = 1952,
+			["speed"] = 260,
+			["speciesName"] = "小白鲨",
+			["level"] = 25,
+			["maxHealth"] = 1952,
+			["attack"] = 370,
+		},
+		["精神扭曲者"] = {
+			["PetType"] = 6,
+			["enemyPetType"] = 9,
+			["StyPetType"] = "魔法",
+			["health"] = 1546,
+			["name"] = "精神扭曲者",
+			["speciesName"] = "精神扭曲者",
+			["speed"] = 341,
+			["level"] = 25,
+			["maxHealth"] = 1546,
+			["attack"] = 289,
+		},
+		["小型充能烈风"] = {
+			["PetType"] = 7,
+			["enemyPetType"] = 9,
+			["StyPetType"] = "元素",
+			["health"] = 1546,
+			["name"] = "小型充能烈风",
+			["speciesName"] = "小型充能烈风",
+			["speed"] = 301,
+			["level"] = 25,
+			["maxHealth"] = 1546,
+			["attack"] = 330,
+		},
+		["鱼饵"] = {
+			["PetType"] = 8,
+			["enemyPetType"] = 10,
+			["StyPetType"] = "野兽",
+			["name"] = "鱼饵",
+			["health"] = 1952,
+			["speed"] = 260,
+			["speciesName"] = "鱼饵",
+			["level"] = 25,
+			["maxHealth"] = 1952,
+			["attack"] = 370,
+		},
+	},
+	["WildBattlePetData"] = {
+	},
+}
+SpamChatDB = {
+}
