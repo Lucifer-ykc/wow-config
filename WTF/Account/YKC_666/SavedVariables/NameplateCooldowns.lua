@@ -236,8 +236,8 @@ NameplateCooldownsDB = {
 			[108280] = true,
 			[195457] = true,
 			[781] = true,
-			[11876] = true,
 			[192058] = true,
+			[11876] = true,
 			[19577] = true,
 			[408] = true,
 			[207349] = true,
@@ -2253,6 +2253,15 @@ NameplateCooldownsAceDB = {
 					["cooldown"] = 180,
 					["texture"] = 135919,
 				},
+				["日光术"] = {
+					["enabled"] = true,
+					["refSpellID"] = 78675,
+					["spellIDs"] = {
+						[78675] = true,
+					},
+					["cooldown"] = 30,
+					["texture"] = 252188,
+				},
 				["禅意时刻"] = {
 					["enabled"] = true,
 					["refSpellID"] = 201325,
@@ -2271,23 +2280,14 @@ NameplateCooldownsAceDB = {
 					["cooldown"] = 110,
 					["texture"] = 135870,
 				},
-				["黑暗模拟"] = {
+				["火箭弹幕"] = {
 					["enabled"] = true,
-					["refSpellID"] = 77606,
+					["refSpellID"] = 69041,
 					["spellIDs"] = {
-						[77606] = true,
+						[69041] = true,
 					},
-					["cooldown"] = 60,
-					["texture"] = 135888,
-				},
-				["幽灵视觉"] = {
-					["enabled"] = true,
-					["refSpellID"] = 188501,
-					["spellIDs"] = {
-						[188501] = true,
-					},
-					["cooldown"] = 30,
-					["texture"] = 1247266,
+					["cooldown"] = 120,
+					["texture"] = 133032,
 				},
 				["痛苦压制"] = {
 					["enabled"] = true,
@@ -2415,23 +2415,23 @@ NameplateCooldownsAceDB = {
 					["cooldown"] = 60,
 					["texture"] = 629077,
 				},
-				["火箭弹幕"] = {
+				["幽灵视觉"] = {
 					["enabled"] = true,
-					["refSpellID"] = 69041,
+					["refSpellID"] = 188501,
 					["spellIDs"] = {
-						[69041] = true,
-					},
-					["cooldown"] = 120,
-					["texture"] = 133032,
-				},
-				["日光术"] = {
-					["enabled"] = true,
-					["refSpellID"] = 78675,
-					["spellIDs"] = {
-						[78675] = true,
+						[188501] = true,
 					},
 					["cooldown"] = 30,
-					["texture"] = 252188,
+					["texture"] = 1247266,
+				},
+				["黑暗模拟"] = {
+					["enabled"] = true,
+					["refSpellID"] = 77606,
+					["spellIDs"] = {
+						[77606] = true,
+					},
+					["cooldown"] = 60,
+					["texture"] = 135888,
 				},
 				["致盲"] = {
 					["enabled"] = true,

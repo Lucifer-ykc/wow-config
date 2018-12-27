@@ -62,8 +62,8 @@ BigFoot_Config = {
 	["ActionButton"] = {
 		["ShowCenter"] = 0,
 		["EnableCooldownCount2"] = 0,
-		["ShineType"] = "标准",
 		["ToggleBar"] = 0,
+		["ShineType"] = "标准",
 		["checkedVersion"] = "724",
 	},
 	["SellerHelper"] = {
@@ -71,9 +71,9 @@ BigFoot_Config = {
 		["ARAccept"] = 1,
 		["checkedVersion"] = "724",
 		["SellAccept"] = 1,
+		["EnableAutoRecharge"] = 1,
 		["ShowTradeAnnounce"] = 1,
 		["EnableSellerHelper"] = 1,
-		["EnableAutoRecharge"] = 1,
 	},
 	["BF_System"] = {
 		["checkedVersion"] = "724",
@@ -175,17 +175,17 @@ BigFoot_Config = {
 		["EnableTargetClassInfo"] = 1,
 		["EnablePartyPor"] = 1,
 		["EnablePartyTarget"] = 1,
-		["EnablePorEnhance"] = 1,
-		["checkedVersion"] = "721",
 		["EnableColorize"] = 1,
+		["checkedVersion"] = "721",
+		["EnablePorEnhance"] = 1,
 	},
 	["InfoBox"] = {
 		["EnableBlizzMove"] = 1,
 		["checkedVersion"] = "724",
 		["EnableMasque"] = 0,
 		["EnableBFGoldFrame"] = 1,
-		["EnableInfoBoxV2"] = 0,
 		["Masque_BuffDisable"] = 1,
+		["EnableInfoBoxV2"] = 0,
 	},
 	["MobHealth"] = {
 		["TransparentMode"] = 0,
@@ -207,12 +207,12 @@ BigFoot_Config = {
 		["BigFootTooltipItemLevel"] = "显示",
 		["BigFootTooltipPosition"] = "无",
 		["EnableBFTooltip"] = 1,
-		["checkedVersion"] = "724",
+		["EnableNewTypeBFTooltip"] = 0,
 		["BigFootTooltipGuildRank"] = "隐藏",
 		["BigFootTooltipToT"] = "显示",
 		["BigFootTooltipTalent"] = "显示",
 		["BigFootTooltipPositionX"] = -20,
-		["EnableNewTypeBFTooltip"] = 0,
+		["checkedVersion"] = "724",
 	},
 	["CombatIndicator"] = {
 		["EnableCombatLeave"] = 1,
@@ -279,8 +279,8 @@ BigFoot_Error = {
 			["class"] = "潜行者",
 			["race"] = "血精灵",
 			["time"] = 1541960415,
-			["level"] = 91,
 			["trace"] = "Interface\\AddOns\\BigFoot\\BigFootError.lua:1: in function `BigFootErrorFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>\n[C]: in function `GuildControlSetRank'\n...\\Blizzard_GuildControlUI\\Blizzard_GuildControlUI.lua:24: in function <...\\Blizzard_GuildControlUI\\Blizzard_GuildControlUI.lua:7>\n[C]: in function `LoadAddOn'\nInterface\\FrameXML\\UIParent.lua:446: in function `UIParentLoadAddOn'\nInterface\\FrameXML\\UIParent.lua:692: in function `Communities_LoadUI'\nInterface\\FrameXML\\UIParent.lua:926: in function `ToggleCommunitiesFrame'\nInterface\\FrameXML\\UIParent.lua:813: in function `ToggleGuildFrame'\n[string \"TOGGLEGUILDTAB\"]:1: in function <[string \"TOGGLEGUILDTAB\"]:1>\n",
+			["level"] = 91,
 			["forbiddenfunc"] = "GuildControlSetRank()",
 			["version"] = "zhCN8.0.0.721",
 		},
@@ -290,8 +290,8 @@ BigFoot_Error = {
 			["class"] = "法师",
 			["race"] = "虚空精灵",
 			["time"] = 1544204176,
-			["trace"] = "Interface\\AddOns\\BigFoot\\BigFootError.lua:1: in function `BigFootErrorFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>\n[C]: ?\n[C]: in function `UseContainerItem'\nInterface\\FrameXML\\ContainerFrame.lua:1291: in function `ContainerFrameItemButton_OnClick'\n[string \"*:OnClick\"]:12: in function <[string \"*:OnClick\"]:1>\n",
 			["level"] = 120,
+			["trace"] = "Interface\\AddOns\\BigFoot\\BigFootError.lua:1: in function `BigFootErrorFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>\n[C]: ?\n[C]: in function `UseContainerItem'\nInterface\\FrameXML\\ContainerFrame.lua:1291: in function `ContainerFrameItemButton_OnClick'\n[string \"*:OnClick\"]:12: in function <[string \"*:OnClick\"]:1>\n",
 			["forbiddenfunc"] = "UNKNOWN()",
 			["version"] = "zhCN8.0.0.724",
 		},
@@ -301,8 +301,8 @@ BigFoot_Error = {
 			["class"] = "法师",
 			["race"] = "虚空精灵",
 			["time"] = 1541510187,
-			["trace"] = "Interface\\AddOns\\BigFoot\\BigFootError.lua:1: in function `BigFootErrorFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>\n[C]: in function `GuildControlSetRank'\n...\\Blizzard_GuildControlUI\\Blizzard_GuildControlUI.lua:24: in function <...\\Blizzard_GuildControlUI\\Blizzard_GuildControlUI.lua:7>\n[C]: in function `LoadAddOn'\nInterface\\FrameXML\\UIParent.lua:446: in function `UIParentLoadAddOn'\nInterface\\FrameXML\\UIParent.lua:692: in function `Communities_LoadUI'\nInterface\\FrameXML\\UIParent.lua:926: in function `ToggleCommunitiesFrame'\nInterface\\FrameXML\\UIParent.lua:813: in function `ToggleGuildFrame'\n[string \"TOGGLEGUILDTAB\"]:1: in function <[string \"TOGGLEGUILDTAB\"]:1>\n",
 			["level"] = 120,
+			["trace"] = "Interface\\AddOns\\BigFoot\\BigFootError.lua:1: in function `BigFootErrorFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>\n[C]: in function `GuildControlSetRank'\n...\\Blizzard_GuildControlUI\\Blizzard_GuildControlUI.lua:24: in function <...\\Blizzard_GuildControlUI\\Blizzard_GuildControlUI.lua:7>\n[C]: in function `LoadAddOn'\nInterface\\FrameXML\\UIParent.lua:446: in function `UIParentLoadAddOn'\nInterface\\FrameXML\\UIParent.lua:692: in function `Communities_LoadUI'\nInterface\\FrameXML\\UIParent.lua:926: in function `ToggleCommunitiesFrame'\nInterface\\FrameXML\\UIParent.lua:813: in function `ToggleGuildFrame'\n[string \"TOGGLEGUILDTAB\"]:1: in function <[string \"TOGGLEGUILDTAB\"]:1>\n",
 			["forbiddenfunc"] = "GuildControlSetRank()",
 			["version"] = "zhCN8.0.0.720",
 		},
@@ -313,9 +313,9 @@ BigFoot_Error = {
 			["race"] = "虚空精灵",
 			["time"] = 1541522378,
 			["version"] = "zhCN8.0.0.720",
-			["level"] = 120,
-			["forbiddenfunc"] = "func()",
 			["trace"] = "Interface\\AddOns\\BigFoot\\BigFootError.lua:1: in function `BigFootErrorFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>\n[C]: ?\nInterface\\FrameXML\\QueueStatusFrame.lua:740: in function `func'\nInterface\\FrameXML\\UIDropDownMenu.lua:935: in function `UIDropDownMenuButton_OnClick'\n[string \"*:OnClick\"]:1: in function <[string \"*:OnClick\"]:1>\n",
+			["forbiddenfunc"] = "func()",
+			["level"] = 120,
 		},
 	},
 	["zhCN8.0.0.722"] = {
@@ -478,6 +478,8 @@ BF_LogonInfo = {
 	1544633669, -- [78]
 	1545044765, -- [79]
 	1545751995, -- [80]
+	1545825445, -- [81]
+	1545909258, -- [82]
 }
 ModelChangeVariable = {
 	["hide"] = true,

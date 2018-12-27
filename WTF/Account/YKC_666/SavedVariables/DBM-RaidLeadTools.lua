@@ -11,8 +11,8 @@ DBM_AutoInvite_Settings = {
 	["promote_rank"] = 0,
 	["promote_all"] = false,
 	["other"] = false,
-	["lastaoerank"] = 0,
 	["guildmates"] = true,
+	["lastaoerank"] = 0,
 }
 DBM_RaidLead_Settings = {
 	["StickyIcons"] = false,

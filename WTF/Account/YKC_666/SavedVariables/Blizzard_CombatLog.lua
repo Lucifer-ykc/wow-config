@@ -108,8 +108,7 @@ Blizzard_CombatLog_Filters = {
 						["b"] = 0.7,
 					},
 				},
-				["highlightedEvents"] = {
-					["PARTY_KILL"] = true,
+				["eventColoring"] = {
 				},
 				["defaults"] = {
 					["spell"] = {
@@ -125,7 +124,8 @@ Blizzard_CombatLog_Filters = {
 						["b"] = 0,
 					},
 				},
-				["eventColoring"] = {
+				["highlightedEvents"] = {
+					["PARTY_KILL"] = true,
 				},
 			},
 			["hasQuickButton"] = true,
@@ -156,8 +156,8 @@ Blizzard_CombatLog_Filters = {
 				["braces"] = false,
 				["unitBraces"] = true,
 				["schoolNameHighlighting"] = true,
-				["unitIcons"] = true,
 				["hideBuffs"] = true,
+				["unitIcons"] = true,
 				["unitColoring"] = false,
 				["amountSchoolColoring"] = false,
 				["amountColoring"] = false,
@@ -354,8 +354,7 @@ Blizzard_CombatLog_Filters = {
 						["b"] = 0.7,
 					},
 				},
-				["highlightedEvents"] = {
-					["PARTY_KILL"] = true,
+				["eventColoring"] = {
 				},
 				["defaults"] = {
 					["spell"] = {
@@ -371,7 +370,8 @@ Blizzard_CombatLog_Filters = {
 						["b"] = 0,
 					},
 				},
-				["eventColoring"] = {
+				["highlightedEvents"] = {
+					["PARTY_KILL"] = true,
 				},
 			},
 			["hasQuickButton"] = true,
@@ -402,8 +402,8 @@ Blizzard_CombatLog_Filters = {
 				["braces"] = false,
 				["unitBraces"] = true,
 				["schoolNameHighlighting"] = true,
-				["unitIcons"] = true,
 				["hideBuffs"] = true,
+				["unitIcons"] = true,
 				["unitColoring"] = false,
 				["amountSchoolColoring"] = false,
 				["amountColoring"] = false,
@@ -431,14 +431,14 @@ Blizzard_CombatLog_Filters = {
 						["SPELL_INSTAKILL"] = true,
 						["SPELL_PERIODIC_DAMAGE"] = true,
 						["SPELL_CAST_START"] = true,
-						["SWING_DAMAGE"] = true,
-						["UNIT_DESTROYED"] = true,
-						["SPELL_DAMAGE"] = true,
-						["SPELL_CAST_SUCCESS"] = true,
-						["RANGE_DAMAGE"] = true,
-						["ENVIRONMENTAL_DAMAGE"] = true,
-						["SPELL_HEAL"] = true,
 						["SPELL_PERIODIC_HEAL"] = true,
+						["SPELL_DAMAGE"] = true,
+						["UNIT_DESTROYED"] = true,
+						["SPELL_CAST_SUCCESS"] = true,
+						["SPELL_HEAL"] = true,
+						["ENVIRONMENTAL_DAMAGE"] = true,
+						["RANGE_DAMAGE"] = true,
+						["SWING_DAMAGE"] = true,
 						["UNIT_DIED"] = true,
 					},
 				}, -- [1]

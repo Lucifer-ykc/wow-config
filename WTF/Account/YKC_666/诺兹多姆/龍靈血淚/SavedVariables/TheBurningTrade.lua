@@ -3369,6 +3369,273 @@ TradeLog_TradesHistory = {
 		["result"] = "complete",
 		["where"] = "奥迪尔",
 	}, -- [141]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 142,
+		["playerItems"] = {
+			{
+				["name"] = "泰坦火花活化器",
+				["numItems"] = 1,
+				["itemLink"] = "|cffa335ee|Hitem:160680::::::::120:63::6:3:4800:1507:4786:::|h[泰坦火花活化器]|h|r",
+				["texture"] = 2125885,
+			}, -- [1]
+		},
+		["targetItems"] = {
+			{
+				["name"] = "爆裂行者",
+				["numItems"] = 1,
+				["itemLink"] = "|cffa335ee|Hitem:160714::::::::120:63::6:3:4800:1507:4786:::|h[爆裂行者]|h|r",
+				["isUsable"] = true,
+				["texture"] = 2059664,
+			}, -- [1]
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "舞弥弥",
+		["when"] = "12-27 20:18:11",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [142]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 143,
+		["playerItems"] = {
+			{
+				["name"] = "晋升先知之面",
+				["numItems"] = 1,
+				["itemLink"] = "|cffa335ee|Hitem:160719::::::::120:62::6:4:4824:1507:4786:5402:::|h[晋升先知之面]|h|r",
+				["texture"] = 2059668,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "舞弥弥",
+		["when"] = "12-27 21:33:14",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [143]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 144,
+		["playerItems"] = {
+			{
+				["name"] = "秘法合剂",
+				["numItems"] = 1,
+				["itemLink"] = "|cffffffff|Hitem:162518::::::::120:62::::::|h[秘法合剂]|h|r",
+				["texture"] = 134794,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "伊滕诚",
+		["when"] = "12-27 21:35:15",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [144]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 145,
+		["playerItems"] = {
+		},
+		["reason"] = "other",
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["who"] = "灼眼菂夏娜",
+		["when"] = "12-27 21:49:21",
+		["where"] = "奥迪尔",
+		["result"] = "cancelled",
+		["toofar"] = "no",
+	}, -- [145]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 146,
+		["playerItems"] = {
+		},
+		["reason"] = "other",
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["who"] = "萌萌的胸肌丶",
+		["when"] = "12-27 21:57:30",
+		["where"] = "奥迪尔",
+		["result"] = "cancelled",
+		["toofar"] = "no",
+	}, -- [146]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 147,
+		["playerItems"] = {
+			{
+				["name"] = "智力战斗药水",
+				["numItems"] = 8,
+				["itemLink"] = "|cffffffff|Hitem:163222::::::::120:63::::::|h[智力战斗药水]|h|r",
+				["texture"] = 609889,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "追风之心",
+		["when"] = "12-27 21:57:49",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [147]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 148,
+		["playerItems"] = {
+		},
+		["targetItems"] = {
+			{
+				["name"] = "凡图斯符文：奥迪尔",
+				["numItems"] = 4,
+				["itemLink"] = "|cffffffff|Hitem:153673::::::::120:63::::::|h[凡图斯符文：奥迪尔]|h|r",
+				["isUsable"] = true,
+				["texture"] = 2178531,
+			}, -- [1]
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "追风之心",
+		["when"] = "12-27 22:02:49",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [148]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 149,
+		["playerItems"] = {
+			{
+				["name"] = "凡图斯符文：奥迪尔",
+				["numItems"] = 1,
+				["itemLink"] = "|cffffffff|Hitem:153673::::::::120:63::::::|h[凡图斯符文：奥迪尔]|h|r",
+				["texture"] = 2178531,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "灼眼菂夏娜",
+		["when"] = "12-27 22:03:01",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [149]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 150,
+		["playerItems"] = {
+			{
+				["name"] = "凡图斯符文：奥迪尔",
+				["numItems"] = 1,
+				["itemLink"] = "|cffffffff|Hitem:153673::::::::120:63::::::|h[凡图斯符文：奥迪尔]|h|r",
+				["texture"] = 2178531,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "月蝶华想",
+		["when"] = "12-27 22:03:29",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [150]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 151,
+		["playerItems"] = {
+			{
+				["name"] = "凡图斯符文：奥迪尔",
+				["numItems"] = 1,
+				["itemLink"] = "|cffffffff|Hitem:153673::::::::120:63::::::|h[凡图斯符文：奥迪尔]|h|r",
+				["texture"] = 2178531,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_SHOW", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_CLOSED", -- [3]
+		},
+		["who"] = "舞弥弥",
+		["when"] = "12-27 22:03:35",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [151]
+	{
+		["targetMoney"] = 0,
+		["playerMoney"] = 0,
+		["id"] = 152,
+		["playerItems"] = {
+			{
+				["name"] = "智力战斗药水",
+				["numItems"] = 8,
+				["itemLink"] = "|cffffffff|Hitem:163222::::::::120:63::::::|h[智力战斗药水]|h|r",
+				["texture"] = 609889,
+			}, -- [1]
+		},
+		["targetItems"] = {
+		},
+		["player"] = "龍靈血淚",
+		["events"] = {
+			"TRADE_CLOSED", -- [1]
+			"TRADE_CLOSED", -- [2]
+			"TRADE_SHOW", -- [3]
+			"TRADE_CLOSED", -- [4]
+			"TRADE_CLOSED", -- [5]
+		},
+		["who"] = "追风之心",
+		["when"] = "12-27 22:55:26",
+		["where"] = "奥迪尔",
+		["result"] = "complete",
+	}, -- [152]
 }
 TRADE_LOG_BUTTON_POS = 190
 TradeLog_Announce_Checked = nil

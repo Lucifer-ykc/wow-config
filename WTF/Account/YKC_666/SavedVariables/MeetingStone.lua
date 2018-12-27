@@ -38,7 +38,7 @@ MEETINGSTONE_UI_DB = {
 				["new"] = false,
 			},
 			["FilterData"] = {
-				["data"] = "^1^S![Vv][Xx]^S下单^S![Vv][Ii][Pp]^S付款^S某宝^S站桩^S代打^S陪练^S低价^S便宜^S超低^S可躺^S老板^S门票^S包车^S![Ww][ⅩXx]^S另接^S全躺^S咨询^S陪打^S看戏^S差价^S可拼^S躺尸^S来壕^S实惠^S价格^S贵宾^S陪聊^S支付^SV信^S单点^S带小号^S无压斤^S有偿^S带你飞^S可淘^S自己捡装^S来各种躺^S卧铺^S根%h*糖^S拼%h*包^S代唰^S代做^S安全效率^S臣卜^S拼车^S包%h*同甲^S可指定^S装备送^^",
+				["data"] = "^1^S![Vv][Xx]^S下单^S![Vv][Ii][Pp]^S付款^S某宝^S站桩^S代打^S陪练^S低价^S便宜^S超低^S老板^S门票^S包车^S![Ww][ⅩXx]^S另接^S全躺^S咨询^S陪打^S看戏^S差价^S可拼^S来壕^S实惠^S价格^S贵宾^S陪聊^S支付^SV信^S单点^S带小号^S无压斤^S有偿^S带你飞^S可淘^S自己捡装^S来各种躺^S卧铺^S根%h*糖^S拼%h*包^S代唰^S代做^S安全效率^S臣卜^S拼车^S可指定^S装备送^^",
 				["new"] = true,
 			},
 			["MallData"] = {
