@@ -29,6 +29,8 @@ TellMeWhenDB = {
 	["Version"] = 85702,
 	["profiles"] = {
 		["龍靈血淚 - 诺兹多姆"] = {
+			["Version"] = 85702,
+			["NumGroups"] = 2,
 			["Groups"] = {
 				{
 					["Icons"] = {
@@ -142,8 +144,8 @@ TellMeWhenDB = {
 						{
 							["ShowTimer"] = true,
 							["Type"] = "buff",
-							["Name"] = "190319",
 							["ShowTimerText"] = true,
+							["Name"] = "190319",
 							["States"] = {
 								{
 								}, -- [1]
@@ -159,8 +161,8 @@ TellMeWhenDB = {
 							["ShowTimer"] = true,
 							["Type"] = "buff",
 							["TimerBar_StartColor"] = "ff00ff00",
-							["Name"] = "274598",
 							["ShowTimerText"] = true,
+							["Name"] = "274598",
 							["Events"] = {
 								{
 									["Type"] = "Animations",
@@ -221,8 +223,6 @@ TellMeWhenDB = {
 					["GUID"] = "TMW:group:1S1cCX9a=_wg",
 				}, -- [2]
 			},
-			["NumGroups"] = 2,
-			["Version"] = 85702,
 			["Locked"] = true,
 		},
 		["黯寂 - 符文图腾"] = {

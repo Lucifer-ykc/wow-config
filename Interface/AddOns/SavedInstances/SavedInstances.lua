@@ -33,6 +33,7 @@ local INSTANCE_SAVED, TRANSFER_ABORT_TOO_MANY_INSTANCES, NO_RAID_INSTANCES_SAVED
   INSTANCE_SAVED, TRANSFER_ABORT_TOO_MANY_INSTANCES, NO_RAID_INSTANCES_SAVED
 
 local ALREADY_LOOTED = ERR_LOOT_GONE:gsub("%(.*%)","")
+ALREADY_LOOTED = ALREADY_LOOTED:gsub("£¨.*£©","") -- fix on zhCN and zhTW
 
 -- Unit Aura functions that return info about the first aura matching the spellName or spellID given on the unit.
 local SI_GetUnitAura = function(unit, spell, filter)
@@ -58,6 +59,7 @@ local currency = addon.currency
 local trade_spells = addon.trade_spells
 local cdname = addon.cdname
 local QuestExceptions = addon.QuestExceptions
+local TimewalkingItemQuest = addon.TimewalkingItemQuest
 local scantt = addon.scantt
 local KeystonetoAbbrev = addon.KeystonetoAbbrev
 local KeystoneAbbrev = addon.KeystoneAbbrev
@@ -87,6 +89,8 @@ for i = 0,10 do
   end
 end
 
+-- eventInfo format: [eventID] = true
+local eventInfo = {}
 local tooltip, indicatortip
 local thisToon = UnitName("player") .. " - " .. GetRealmName()
 local maxlvl = MAX_PLAYER_LEVEL_TABLE[#MAX_PLAYER_LEVEL_TABLE]
@@ -409,29 +413,20 @@ addon.defaultDB = {
     TrackPlayed = true,
     AugmentBonus = true,
     CurrencyValueColor = true,
-    Currency776 = false, -- Warforged Seals
-    Currency738 = false, -- Lesser Charm of Good Fortune
-    Currency823 = false,  -- Apexis Crystal
-    Currency824 = false,  -- Garrison Resources
-    Currency1101= false,  -- Oil
-    Currency994 = false, -- Seal of Tempered Fate
-    Currency1129= false, -- Seal of Inevitable Fate
-    Currency1155= false,  -- Ancient Mana
-    Currency1166= true,  -- Timewarped Badge
-    Currency1191= false,  -- Valor Points
-    Currency1220= false,  -- Order Resources
-    Currency1226= false, -- Nethershards
-    Currency1273= false,  -- Seal of Broken Fate
-    Currency1149= false,  -- Sightless Eye
-    Currency515= true,
-    Currency1560= true,
-    Currency1580= true,
-    Currency1587= true,
+    Currency515= true,	-- bf@178.com
+    Currency1710 = true, -- Seafarer's Dubloon
+    Currency1580 = true, -- Seal of Wartorn Fate
+    Currency1560 = true, -- War Resources
+    Currency1587 = true, -- War Supplies
+    Currency1716 = true, -- Honorbound Service Medal
+    Currency1717 = true, -- 7th Legion Service Medal
+    Currency1718 = true, -- Titan Residuum
     CurrencyMax = false,
     CurrencyEarned = true,
     MythicKey = true,
     MythicKeyBest = true,
     DailyWorldQuest = true,
+    DailyWorldQuestAllNames = true,
     AbbreviateKeystone = true,
   },
   Instances = { }, 	-- table key: "Instance name"; value:
@@ -677,17 +672,47 @@ function addon:QuestCount(toonname)
   if not t then return 0,0 end
   local dailycount, weeklycount = 0,0
   -- ticket 96: GetDailyQuestsCompleted() is unreliable, the response is laggy and it fails to count some quests
-  for _,info in pairs(t.Quests) do
-    if info.isDaily then
-      dailycount = dailycount + 1
-    else
-      weeklycount = weeklycount + 1
+  local id, info
+  for id, info in pairs(t.Quests) do
+    -- Timewalking Item Quests only show during Timewalking Weeks
+    if (not TimewalkingItemQuest[id]) or eventInfo[TimewalkingItemQuest[id]] then
+      if info.isDaily then
+        dailycount = dailycount + 1
+      else
+        weeklycount = weeklycount + 1
+      end
     end
   end
   return dailycount, weeklycount
 end
 
 -- local addon functions below
+
+local function UpdateEventInfo()
+  local current, monthInfo = C_DateAndTime.GetCurrentCalendarTime(), C_Calendar.GetMonthInfo()
+  local month, day, year = current.month, current.monthDay, current.year
+  local showMonth, showYear = monthInfo.month, monthInfo.year
+  local monthOffset = -12 * (showYear - year) + month - showMonth
+  local numEvents = C_Calendar.GetNumDayEvents(monthOffset, day)
+  debug("numEvents: " .. numEvents)
+  for i = 1, numEvents do
+    local event = C_Calendar.GetDayEvent(monthOffset, day, i)
+    debug("eventID: " .. event.eventID)
+    if event.sequenceType == "START" then
+      local hour, minute = event.startTime.hour, event.startTime.minute
+      if hour > current.hour or (hour == current.hour and minute > current.minute) then
+        eventInfo[event.eventID] = true
+      end
+    elseif event.sequenceType == "END" then
+      local hour, minute = event.startTime.hour, event.startTime.minute
+      if hour < current.hour or (hour == current.hour and minute < current.minute) then
+        eventInfo[event.eventID] = true
+      end
+    else -- "ONGOING"
+      eventInfo[event.eventID] = true
+    end
+  end
+end
 
 local function GetLastLockedInstance()
   local numsaved = GetNumSavedInstances()
@@ -1724,8 +1749,11 @@ local function ShowQuestTooltip(cell, arg, ...)
   local zonename, id
   for id,qi in pairs(t.Quests) do
     if (not isDaily) == (not qi.isDaily) then
-      zonename = qi.Zone and qi.Zone.name or ""
-      table.insert(ql,zonename.." # "..id)
+      -- Timewalking Item Quests only show during Timewalking Weeks
+      if (not TimewalkingItemQuest[id]) or eventInfo[TimewalkingItemQuest[id]] then
+        zonename = qi.Zone and qi.Zone.name or ""
+        table.insert(ql,zonename.." # "..id)
+      end
     end
   end
   table.sort(ql)
@@ -1783,6 +1811,41 @@ local function ShowSkillTooltip(cell, arg, ...)
     local tstr = SecondsToTime((sinfo.Expires or 0) - time())
     indicatortip:SetCell(line,1,title,"LEFT",2)
     indicatortip:SetCell(line,3,tstr,"RIGHT")
+  end
+  finishIndicator()
+end
+
+local function ShowEmissarySummary(cell, arg, ...)
+  local day = arg
+  local buffer, flag = {}, false
+  openIndicator(2, "LEFT", "RIGHT")
+  indicatortip:AddHeader(L["Emissary quests"], "")
+  local toon, t
+  for toon, t in pairs(addon.db.Toons) do
+    local info = t.DailyWorldQuest["days" .. day]
+    if info and not info.iscompleted then
+      if not buffer[info.name] then buffer[info.name] = {} end
+      table.insert(buffer[info.name], toon)
+      flag = true
+    end
+  end
+  if not flag then
+    indicatortip:AddLine(L["Emissary Missing"], "")
+  else
+    local name, tbl
+    for name, tbl in pairs(buffer) do
+      indicatortip:AddLine(name, "")
+      for _, toon in pairs(tbl) do
+        t = addon.db.Toons[toon]
+        local info, str = t.DailyWorldQuest["days" .. day]
+        if info.isfinish then
+          str = "\124T"..READY_CHECK_WAITING_TEXTURE..":0|t"
+        else
+          str = info.questdone .. "/" .. info.questneed
+        end
+        indicatortip:AddLine(ClassColorise(t.Class, toon), str)
+      end
+    end
   end
   finishIndicator()
 end
@@ -2212,7 +2275,7 @@ end
 function core:OnInitialize()
   local versionString = GetAddOnMetadata(addonName, "version")
   --[===[@debug@
-  if versionString == "8.0.8" then
+  if versionString == "8.0.8-13-g1f37e4b" then
     versionString = "Dev"
   end
   --@end-debug@]===]
@@ -2277,6 +2340,7 @@ function core:OnInitialize()
   end
   RequestRaidInfo() -- get lockout data
   RequestLFDPlayerLockInfo()
+  C_Calendar.OpenCalendar() -- Request for event info, not actually open the calendar
   addon.dataobject = addon.LDB and addon.LDB:NewDataObject("SavedInstances", {
     text = addonAbbrev,
     type = "launcher",
@@ -3561,6 +3625,7 @@ function core:ShowTooltip(anchorframe)
   end
 
   do
+    UpdateEventInfo() -- fetch current event info before rendering
     local showd, showw
     for toon, t in cpairs(addon.db.Toons, true) do
       local dc, wc = addon:QuestCount(toon)
@@ -3726,6 +3791,7 @@ function core:ShowTooltip(anchorframe)
             if(not show[DailyInfo.dayleft] or show[DailyInfo.dayleft] == L["Emissary Missing"]) then
               show[DailyInfo.dayleft] = DailyInfo.name
             elseif (
+              addon.db.Tooltip.DailyWorldQuestAllNames and
               (not show[DailyInfo.dayleft]:find("/")) and
               (show[DailyInfo.dayleft] ~= DailyInfo.name) and
               (DailyInfo.name ~= L["Emissary Missing"])
@@ -3749,6 +3815,8 @@ function core:ShowTooltip(anchorframe)
       if show[dayleft] then
         local showday = show[dayleft]
 			  show[dayleft] = tooltip:AddLine(GOLDFONT .. showday .. " (+" .. dayleft .. " " .. L["Day"] .. ")" .. FONTEND)
+        tooltip:SetCellScript(show[dayleft], 1, "OnEnter", ShowEmissarySummary, dayleft)
+        tooltip:SetCellScript(show[dayleft], 1, "OnLeave", CloseTooltips)
       end
     end
     for toon, t in cpairs(addon.db.Toons, true) do

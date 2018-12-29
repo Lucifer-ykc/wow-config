@@ -117,8 +117,8 @@ function EventAlert_CreateFrames()
 
 	-- Create Execution alert frames.
 		local eaexf = CreateFrame("FRAME", "EventAlert_ExecutionFrame", UIParent);
-		eaexf:ClearAllPoints();
 		eaexf:SetFrameStrata("BACKGROUND");
+		eaexf:ClearAllPoints();
 		eaexf:SetPoint("TOP", UIParent, "TOP", 0, -50);
 		eaexf:SetHeight(256);
 		eaexf:SetWidth(256);
@@ -136,9 +136,8 @@ end
 
 function CreateFrames_CreateAnchorFrame(AnchorFrameName, typeIndex)
 		local eaaf = CreateFrame("FRAME", AnchorFrameName, UIParent);
+		eaaf:SetFrameStrata("LOW");
 		eaaf:ClearAllPoints();
-		eaaf:SetFrameStrata("DIALOG");
-		-- eaaf:SetFrameStrata("LOW");
 		eaaf:SetBackdrop({bgFile = "Interface/Icons/Spell_Nature_Polymorph_Cow"});
 
 		eaaf.spellName = eaaf:CreateFontString(AnchorFrameName.."_Name","OVERLAY");
@@ -198,8 +197,8 @@ function CreateFrames_CreateSpellFrame(index, typeIndex)
 		tinsert(UISpecialFrames,sFramePrefix..index);
 	end
 
+	eaf:SetFrameStrata("LOW");
 	eaf:ClearAllPoints();
-	eaf:SetFrameStrata("HIGH");
 	eaf.redsectext = false;
 	eaf.whitesectext = false;
 	eaf.overgrow = false;
@@ -282,8 +281,8 @@ function CreateFrames_SpecialFrames_Show(index)
 		tinsert(UISpecialFrames,sFramePrefix..index);
 	end
 
+	eaf:SetFrameStrata("LOW");
 	eaf:ClearAllPoints();
-	eaf:SetFrameStrata("HIGH");
 	eaf.spellName:SetFontObject(ChatFontNormal);
 	eaf.spellName:SetPoint("TOP", eaf, "BOTTOM", 0, -EA_Config.IconSize * 0.1);
 
@@ -756,9 +755,8 @@ local function CreateFrames_CfgBtn_ShowGroupFramePos(self)
 		eaf.spellStack = eaf:CreateFontString(FrameNamePrefix..iGroupID.."_Stack","OVERLAY");
 		eaf:SetScript("OnMouseDown", CreateFrames_CfgBtn_GroupFrame_OnMouseDown);
 		eaf:SetScript("OnMouseUp", CreateFrames_CfgBtn_GroupFrame_OnMouseUp);
+		eaf:SetFrameStrata("LOW");
 		eaf:ClearAllPoints();
-		eaf:SetFrameStrata("DIALOG");
-		-- eaf:SetFrameStrata("LOW");
 
         eaf.GroupID = iGroupID	-- bf@178.com
 
@@ -1001,10 +999,10 @@ function CreateFrames_CreateGroupCheckFrame(iGroupIndex)
 		eaf.spellStack = eaf:CreateFontString(FrameNamePrefix..iGroupIndex.."_Stack","OVERLAY");
 	end
 	-- eaf.noCooldownCount = true;
+	-- eaf:SetFrameStrata("HIGH");
 	-- eaf:SetFrameStrata("DIALOG");
+	eaf:SetFrameStrata("LOW");
 	eaf:ClearAllPoints();
-	eaf:SetFrameStrata("HIGH");
-	-- eaf:SetFrameStrata("LOW");
 
 	eaf.spellName:SetFontObject(ChatFontNormal);
 	eaf.spellName:SetPoint("BOTTOM", 0, -15);

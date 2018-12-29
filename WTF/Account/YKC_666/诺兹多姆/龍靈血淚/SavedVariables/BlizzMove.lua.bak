@@ -95,8 +95,8 @@ BlizzMoveDB = {
 		["relativePoint"] = "TOPLEFT",
 		["yOfs"] = -150.000061035156,
 		["xOfs"] = 88.0000457763672,
-		["point"] = "TOPLEFT",
 		["save"] = true,
+		["point"] = "TOPLEFT",
 	},
 	["CommunitiesFrame"] = {
 	},
@@ -125,7 +125,7 @@ BlizzMoveDB = {
 	},
 	["BlackMarketFrame"] = {
 	},
-	["ItemSocketingFrame"] = {
+	["LFRParentFrame"] = {
 	},
 	["LootFrame"] = {
 		["default"] = {
@@ -141,18 +141,7 @@ BlizzMoveDB = {
 	},
 	["GameMenuFrame"] = {
 	},
-	["SpellBookFrame"] = {
-		["default"] = {
-			["relativeTo"] = "UIParent",
-			["point"] = "TOPLEFT",
-			["relativePoint"] = "TOPLEFT",
-			["yOfs"] = -116.000007629395,
-			["xOfs"] = 16,
-		},
-		["relativePoint"] = "TOPLEFT",
-		["yOfs"] = -88.0000686645508,
-		["xOfs"] = 32.9999847412109,
-		["point"] = "TOPLEFT",
+	["LFDParentFrame"] = {
 	},
 	["PVEFrame"] = {
 	},
@@ -169,11 +158,22 @@ BlizzMoveDB = {
 		["xOfs"] = 31.0000171661377,
 		["point"] = "TOPLEFT",
 	},
-	["LFDParentFrame"] = {
+	["SpellBookFrame"] = {
+		["default"] = {
+			["relativeTo"] = "UIParent",
+			["point"] = "TOPLEFT",
+			["relativePoint"] = "TOPLEFT",
+			["yOfs"] = -116.000007629395,
+			["xOfs"] = 16,
+		},
+		["relativePoint"] = "TOPLEFT",
+		["yOfs"] = -88.0000686645508,
+		["xOfs"] = 32.9999847412109,
+		["point"] = "TOPLEFT",
 	},
 	["EncounterJournal"] = {
 	},
-	["LFRParentFrame"] = {
+	["ItemSocketingFrame"] = {
 	},
 	["HelpFrame"] = {
 	},

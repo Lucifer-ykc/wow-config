@@ -1,5 +1,5 @@
 
 AzeriteTooltipDB = {
-	["OnlySpec"] = false,
 	["Compact"] = false,
+	["OnlySpec"] = false,
 }

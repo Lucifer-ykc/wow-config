@@ -2,8 +2,8 @@
 MasterPlanAG = {
 	["符文图腾"] = {
 		["黯寂"] = {
-			["lastCacheTime"] = 1542714690,
 			["class"] = "ROGUE",
+			["lastCacheTime"] = 1542714690,
 			["curRes"] = 1471,
 			["faction"] = "Horde",
 		},
@@ -17,7 +17,7 @@ MasterPlanAG = {
 				["tt1"] = 1544364517,
 				["ti1"] = 118531,
 				["tt3"] = true,
-				["tt2"] = true,
+				["tt2"] = 1544711552,
 			},
 			["faction"] = "Alliance",
 		},

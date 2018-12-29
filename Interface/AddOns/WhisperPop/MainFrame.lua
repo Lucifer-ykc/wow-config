@@ -254,7 +254,7 @@ function list:OnButtonClick(button, data, flag)
 	elseif flag == "LeftButton" then
 		if IsShiftKeyDown() then
 			-- Query player info
-			SendWho("n-"..data.name)
+			C_FriendList.SendWho("n-"..data.name)
 		elseif IsAltKeyDown() then
 			-- Invite
 			InviteUnit(data.name)

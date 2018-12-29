@@ -7,13 +7,7 @@ BF_Frames_Config = {
 		["offY"] = 0,
 		["refPoint"] = "BOTTOMLEFT",
 	},
-	["TrinketMenu_MainFrame"] = {
-		["offX"] = 1543.00024414063,
-		["point"] = "TOPLEFT",
-		["region"] = "UIParent",
-		["offY"] = 154.000640869141,
-		["refPoint"] = "BOTTOMLEFT",
-	},
+	["BCanMove"] = true,
 	["SpellTimerMainFrame"] = {
 		["offX"] = -346.000030517578,
 		["point"] = "TOPLEFT",
@@ -21,7 +15,13 @@ BF_Frames_Config = {
 		["offY"] = 453.000030517578,
 		["refPoint"] = "BOTTOMRIGHT",
 	},
-	["BCanMove"] = true,
+	["TrinketMenu_MainFrame"] = {
+		["offX"] = 1543.00024414063,
+		["point"] = "TOPLEFT",
+		["region"] = "UIParent",
+		["offY"] = 154.00065612793,
+		["refPoint"] = "BOTTOMLEFT",
+	},
 }
 BigFoot_Character = {
 	["Region"] = "cn0",

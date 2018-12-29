@@ -4,7 +4,7 @@
 	<script file="EventAlert_SpellArray.lua" />
 	<Script file="EventAlertMod.lua" />
 
-	<Frame visible="true" name="EA_Main_Frame" parent="UIParent" toplevel="true" frameStrata="HIGH">
+	<Frame visible="true" name="EA_Main_Frame" parent="UIParent" frameStrata="HIGH">
 		<Size>
 			<AbsDimension x="1" y="1" />
 		</Size>

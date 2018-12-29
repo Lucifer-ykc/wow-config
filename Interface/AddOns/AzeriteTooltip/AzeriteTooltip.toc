@@ -5,8 +5,8 @@
 ## Notes: Lightweight addon that shows azerite traits in the tooltip.
 ## Notes-zhCN: |cff00ff00AzeriteTooltip|r
 ## Notes-zhTW: |cff00ff00AzeriteTooltip|r
-## Version: 1.61
-## Author: Kygo
+## Version: 1.92
+## Author: jokair9
 ## SavedVariables: AzeriteTooltipDB
 ## X-Revision: BigFoot
 
