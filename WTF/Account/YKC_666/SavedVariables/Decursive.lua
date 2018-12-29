@@ -1,8 +1,7 @@
 
 DecursiveDB = {
-	["profileKeys"] = {
-		["龍靈血淚 - 诺兹多姆"] = "Default",
-		["黯寂 - 符文图腾"] = "Default",
+	["global"] = {
+		["LastVersionAnnounce"] = 1546091693,
 	},
 	["class"] = {
 		["MAGE"] = {
@@ -28,8 +27,9 @@ DecursiveDB = {
 			},
 		},
 	},
-	["global"] = {
-		["LastVersionAnnounce"] = 1546087184,
+	["profileKeys"] = {
+		["龍靈血淚 - 诺兹多姆"] = "Default",
+		["黯寂 - 符文图腾"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
