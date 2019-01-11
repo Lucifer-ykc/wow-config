@@ -45,10 +45,8 @@ VER 3 0000000000000009 "手套" "877085"
 END
 VER 3 000000000000000A "火能" "132093"
 /stopcasting
-/cast 冰冷血脉
 /cast 燃烧
 /USE 13
-/USE 时光之主手套
 END
 VER 3 000000000000000B "燃烧" "INV_Misc_QuestionMark"
 #showtooltip 燃烧

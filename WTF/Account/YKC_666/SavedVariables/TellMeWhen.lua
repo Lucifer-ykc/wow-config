@@ -161,8 +161,8 @@ TellMeWhenDB = {
 							["ShowTimer"] = true,
 							["Type"] = "buff",
 							["TimerBar_StartColor"] = "ff00ff00",
-							["ShowTimerText"] = true,
 							["Name"] = "274598",
+							["ShowTimerText"] = true,
 							["Events"] = {
 								{
 									["Type"] = "Animations",
@@ -184,7 +184,7 @@ TellMeWhenDB = {
 								}, -- [1]
 								["n"] = 1,
 							},
-							["TimerBar_EnableColors"] = true,
+							["BarDisplay_Invert"] = true,
 							["SettingsPerView"] = {
 								["icon"] = {
 									["TextLayout"] = "bar1",
@@ -201,7 +201,7 @@ TellMeWhenDB = {
 							},
 							["TimerBar_CompleteColor"] = "ffff0000",
 							["Enabled"] = true,
-							["BarDisplay_Invert"] = true,
+							["TimerBar_EnableColors"] = true,
 						}, -- [3]
 						{
 							["States"] = {
@@ -227,7 +227,7 @@ TellMeWhenDB = {
 		},
 		["黯寂 - 符文图腾"] = {
 			["Locked"] = true,
-			["Version"] = 85301,
+			["Version"] = 85702,
 			["Groups"] = {
 				{
 					["GUID"] = "TMW:group:1Rw714gvOdbP",

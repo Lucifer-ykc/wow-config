@@ -14,10 +14,10 @@ MasterPlanAG = {
 			["summary"] = {
 				["ti3"] = 127855,
 				["ti2"] = 122486,
-				["tt1"] = 1544364517,
+				["tt1"] = true,
 				["ti1"] = 118531,
 				["tt3"] = true,
-				["tt2"] = 1544711552,
+				["tt2"] = true,
 			},
 			["faction"] = "Alliance",
 		},

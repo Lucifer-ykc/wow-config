@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- 	Leatrix Plus 8.0.13 (10th October 2018, www.leatrix.com)
+-- 	Leatrix Plus 8.1.00 (12th December 2018, www.leatrix.com)
 ----------------------------------------------------------------------
 
 --	01:Functions	20:Live			50:RunOnce		70:Logout			
@@ -20,14 +20,16 @@
 	local void
 
 --	Version
-	LeaPlusLC["AddonVer"] = "8.0.13"
+	LeaPlusLC["AddonVer"] = "8.1.00"
 	LeaPlusLC["RestartReq"] = nil
 
 --	If client restart is required and has not been done, show warning and quit
 	if LeaPlusLC["RestartReq"] then
 		local metaVer = GetAddOnMetadata("Leatrix_Plus", "Version")
 		if metaVer and metaVer ~= LeaPlusLC["AddonVer"] then
-			print("NOTICE!|nYou must fully restart your game client before you can use this version of Leatrix Plus.")
+			C_Timer.After(1, function()
+				print("NOTICE!|nYou must fully restart your game client before you can use this version of Leatrix Plus.")
+			end)
 			return
 		end
 	end
@@ -456,7 +458,6 @@
 		or	(LeaPlusLC["LockoutSharing"]		~= LeaPlusDB["LockoutSharing"])			-- Lockout sharing
 
 		-- Settings
-		or	(LeaPlusLC["ShowMinimapIcon"]		~= LeaPlusDB["ShowMinimapIcon"])		-- Show minimap button
 		or	(LeaPlusLC["EnableHotkey"]			~= LeaPlusDB["EnableHotkey"])			-- Enable hotkey
 
 		then
@@ -2904,10 +2905,10 @@
 		end
 
 		----------------------------------------------------------------------
-		--	Minimap button
+		-- Minimap button (no reload required)
 		----------------------------------------------------------------------
 
-		if LeaPlusLC["ShowMinimapIcon"] == "On" then
+		do
 
 			-- Minimap button click function
 			local function MiniBtnClickFunc(arg1)
@@ -2996,13 +2997,8 @@
 						LeaPlusLC:HideFrames()
 						LeaPlusLC["PageF"]:Show()
 					end
-					LeaPlusLC["Page"..LeaPlusLC["LeaStartPage"]]:Show()
+					LeaPlusLC["Page" .. LeaPlusLC["LeaStartPage"]]:Show()
 
-				end
-
-				-- Middle button modifier
-				if arg1 == "MiddleButton" then
-					-- Nothing (yet)
 				end
 
 			end
@@ -3026,79 +3022,18 @@
 				local icon = LibStub("LibDBIcon-1.0", true)
 				icon:Register("Leatrix_Plus", miniButton, LeaPlusDB)
 
-			else
-
-				-- LibDBIcon is not being used so create proprietary button
-				local minibtn = CreateFrame("Button", nil, Minimap)
-
-				minibtn:SetFrameStrata("MEDIUM")
-				minibtn:SetFrameLevel(8)
-				minibtn:SetSize(31, 31)
-				minibtn:RegisterForClicks("AnyUp")
-				minibtn:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
-				minibtn:SetMovable(true)
-
-				minibtn.o = minibtn:CreateTexture(nil, "OVERLAY")
-				minibtn.o:SetSize(53, 53)
-				minibtn.o:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
-				minibtn.o:SetPoint("TOPLEFT")
-
-				minibtn.b = minibtn:CreateTexture(nil, "BACKGROUND")
-				minibtn.b:SetSize(20, 20)
-				minibtn.b:SetTexture("Interface\\Minimap\\UI-Minimap-Background")
-				minibtn.b:SetPoint("TOPLEFT", 7, -5)
-
-				minibtn.i = minibtn:CreateTexture(nil, "ARTWORK")
-				minibtn.i:SetSize(20, 20)
-				minibtn.i:SetTexture("Interface\\HELPFRAME\\ReportLagIcon-Movement.png")
-				minibtn.i:SetPoint("CENTER", 0, 0)
-
-				minibtn:HookScript("OnMouseDown", function() minibtn.i:SetSize(18, 18) end)
-				minibtn:HookScript("OnMouseUp", function() minibtn.i:SetSize(20, 20) end)
-
-				-- Minimap buton tooltip
-				minibtn:SetScript("OnEnter", function()
-					GameTooltip:SetOwner(minibtn, "ANCHOR_NONE")
-					local x, y = minibtn:GetCenter()
-					local hhalf = (x > UIParent:GetWidth() * 2 / 3) and "RIGHT" or (x < UIParent:GetWidth()/3) and "LEFT" or ""
-					local vhalf = (y > UIParent:GetHeight() / 2) and "TOP" or "BOTTOM"
-					GameTooltip:ClearAllPoints()
-					GameTooltip:SetPoint(vhalf .. hhalf, minibtn, (vhalf == "TOP" and "BOTTOM" or "TOP") .. hhalf)
-					GameTooltip:SetText("Leatrix Plus", nil, nil, nil, nil, true)
-					GameTooltip:Show()
-				end)
-				minibtn:SetScript("OnLeave", GameTooltip_Hide)
-
-				local function UpdateMapBtn()
-					local Xpoa, Ypoa = GetCursorPosition()
-					local Xmin, Ymin = Minimap:GetLeft(), Minimap:GetBottom()
-					Xpoa = Xmin - Xpoa / Minimap:GetEffectiveScale() + 70
-					Ypoa = Ypoa / Minimap:GetEffectiveScale() - Ymin - 70
-					LeaPlusLC["MinimapIconPos"] = math.deg(math.atan2(Ypoa, Xpoa))
-					minibtn:ClearAllPoints()
-					minibtn:SetPoint("TOPLEFT", Minimap, "TOPLEFT", 52 - (80 * cos(LeaPlusLC["MinimapIconPos"])), (80 * sin(LeaPlusLC["MinimapIconPos"])) - 52)
+				-- Function to toggle LibDBIcon
+				local function SetLibDBIconFunc()
+					if LeaPlusLC["ShowMinimapIcon"] == "On" then
+						icon:Show("Leatrix_Plus")
+					else
+						icon:Hide("Leatrix_Plus")
+					end
 				end
 
-				-- Control movement
-				minibtn:RegisterForDrag("LeftButton")
-				minibtn:SetScript("OnDragStart", function()
-					minibtn:StartMoving()
-					minibtn:SetScript("OnUpdate", UpdateMapBtn)
-				end)
-
-				minibtn:SetScript("OnDragStop", function()
-					minibtn:StopMovingOrSizing()
-					minibtn:SetUserPlaced(false)
-					minibtn:SetScript("OnUpdate", nil)
-					UpdateMapBtn()
-				end)
-
-				-- Set position
-				minibtn:ClearAllPoints()
-				minibtn:SetPoint("TOPLEFT", Minimap, "TOPLEFT", 52 - (80 * cos(LeaPlusLC["MinimapIconPos"])), (80 * sin(LeaPlusLC["MinimapIconPos"])) - 52)
-
-				-- Control clicks
-				minibtn:SetScript("OnClick", function(self, btn) MiniBtnClickFunc(btn) end)
+				-- Set LibDBIcon when option is clicked and on startup
+				LeaPlusCB["ShowMinimapIcon"]:HookScript("OnClick", SetLibDBIconFunc)
+				SetLibDBIconFunc()
 
 			end
 
@@ -3410,16 +3345,17 @@
 			TargetFrame_SetLocked(true)
 
 			-- Remove integrated movement functions to avoid conflicts
-			_G.PlayerFrame_ResetUserPlacedPosition = function() LeaPlusLC:Print("Use Leatrix Plus to reset that frame.") end
-			_G.TargetFrame_ResetUserPlacedPosition = function() LeaPlusLC:Print("Use Leatrix Plus to reset that frame.") end
-			_G.PlayerFrame_SetLocked = function() LeaPlusLC:Print("Use Leatrix Plus to move that frame.") end
-			_G.TargetFrame_SetLocked = function() LeaPlusLC:Print("Use Leatrix Plus to move that frame.") end
+			_G.PlayerFrame_ResetUserPlacedPosition = function() end
+			_G.TargetFrame_ResetUserPlacedPosition = function() end
+			_G.PlayerFrame_SetLocked = function() end
+			_G.TargetFrame_SetLocked = function() end
 
-			-- Replace BuffFrame movement function
+			-- Replace specific movement functions
 			local buffSetPos = BuffFrame.SetPoint
+			local powerBarAltSetPos = PlayerPowerBarAlt.SetPoint
 
 			-- Create frame table (used for local traversal)
-			local FrameTable = {DragPlayerFrame = PlayerFrame, DragTargetFrame = TargetFrame, DragGhostFrame = GhostFrame, DragMirrorTimer1 = MirrorTimer1, DragUIWidgetTopCenterContainerFrame = UIWidgetTopCenterContainerFrame, DragBuffFrame = BuffFrame}
+			local FrameTable = {DragPlayerFrame = PlayerFrame, DragTargetFrame = TargetFrame, DragGhostFrame = GhostFrame, DragMirrorTimer1 = MirrorTimer1, DragUIWidgetTopCenterContainerFrame = UIWidgetTopCenterContainerFrame, DragBuffFrame = BuffFrame, DragPlayerPowerBarAlt = PlayerPowerBarAlt}
 
 			-- Create main table structure in saved variables if it doesn't exist
 			if (LeaPlusDB["Frames"]) == nil then
@@ -3456,6 +3392,8 @@
 				frame:ClearAllPoints();
 				if frame:GetName() == "BuffFrame" then
 					buffSetPos(BuffFrame, point, parent, relative, xoff, yoff)
+				elseif frame:GetName() == "PlayerPowerBarAlt" then
+					powerBarAltSetPos(PlayerPowerBarAlt, point, parent, relative, xoff, yoff)
 				else
 					frame:SetPoint(point, parent, relative, xoff, yoff)
 				end
@@ -3469,6 +3407,7 @@
 				LeaFramesSetPos(MirrorTimer1					, "TOP"		, UIParent, "TOP"		, -5, -96)
 				LeaFramesSetPos(UIWidgetTopCenterContainerFrame	, "TOP"		, UIParent, "TOP"		, 0, -15)
 				LeaFramesSetPos(BuffFrame						, "TOPRIGHT", UIParent, "TOPRIGHT"	, -205, -13)
+				LeaFramesSetPos(PlayerPowerBarAlt				, "BOTTOM"	, UIParent, "BOTTOM"	, 0, 115)
 			end
 
 			-- Create configuration panel
@@ -3606,8 +3545,13 @@
 				local dragframe = CreateFrame("Frame", nil);
 				LeaPlusLC[dragframe] = dragframe
 				dragframe:SetSize(realframe:GetSize())
-				dragframe:SetPoint("TOPRIGHT", realframe, "TOPRIGHT", 0, 2.5)
-
+				if realframe:GetName() == "BuffFrame" then
+					dragframe:SetPoint("TOPRIGHT", realframe, "TOPRIGHT", 0, 2.5)
+				elseif realframe:GetName() == "PlayerPowerBarAlt" then
+					dragframe:SetPoint("CENTER", realframe, "CENTER", 0, 1)
+				else
+					dragframe:SetPoint("TOP", realframe, "TOP", 0, 2.5)
+				end
 				dragframe:SetBackdropColor(0.0, 0.5, 1.0);
 				dragframe:SetBackdrop({ 
 					edgeFile = "Interface/Tooltips/UI-Tooltip-Border",
@@ -3615,8 +3559,8 @@
 					insets = { left = 0, right = 0, top = 0, bottom = 0 }});
 				dragframe:SetToplevel(true)
 
-				-- Unclamp frame
-				if realframe:GetName() == "BuffFrame" then
+				-- Set frame clamps
+				if realframe:GetName() == "BuffFrame" or realframe:GetName() == "PlayerPowerBarAlt" then
 					realframe:SetClampedToScreen(true)
 				else
 					realframe:SetClampedToScreen(false)
@@ -3666,6 +3610,7 @@
 				if realframe:GetName() == "GhostFrame" 						then dragframe.f:SetText(L["Ghost"]) end
 				if realframe:GetName() == "UIWidgetTopCenterContainerFrame" then dragframe.f:SetText(L["Widget"] .. "|n" .. L["Top Center"]) end
 				if realframe:GetName() == "BuffFrame" 						then dragframe.f:SetText(L["Buffs"]) end
+				if realframe:GetName() == "PlayerPowerBarAlt" 				then dragframe.f:SetText(L["Power"]) end
 				return LeaPlusLC[dragframe]
 
 			end
@@ -3706,6 +3651,14 @@
 				end
 			end)
 
+			-- Prevent changes to player power bar alt frame position
+			hooksecurefunc(PlayerPowerBarAlt, "SetPoint", function()
+				if LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Point"] and LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Relative"] and LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["XOffset"] and LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["YOffset"] then
+					PlayerPowerBarAlt:ClearAllPoints()
+					powerBarAltSetPos(PlayerPowerBarAlt, LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Point"], UIParent, LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Relative"], LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["XOffset"], LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["YOffset"])
+				end
+			end)
+
 			-- Add move button
 			LeaPlusCB["MoveFramesButton"]:SetScript("OnClick", function()
 				if LeaPlusLC:PlayerInCombat() then
@@ -3719,6 +3672,7 @@
 						LeaFramesSetPos(MirrorTimer1					, "TOP"		, UIParent, "TOP"		,	"0"		, "-120")
 						LeaFramesSetPos(UIWidgetTopCenterContainerFrame	, "TOP"		, UIParent, "TOP"		,	"0"		, "-542")
 						LeaFramesSetPos(BuffFrame						, "TOPRIGHT", UIParent, "TOPRIGHT"	,	"-271"	, "0")
+						LeaFramesSetPos(PlayerPowerBarAlt				, "CENTER"	, UIParent, "CENTER"	,	"0"		, "-160")
 						LeaPlusDB["Frames"]["PlayerFrame"]["Scale"] = 1.20;
 						PlayerFrame:SetScale(LeaPlusDB["Frames"]["PlayerFrame"]["Scale"]);
 						LeaPlusLC["DragPlayerFrame"]:SetScale(LeaPlusDB["Frames"]["PlayerFrame"]["Scale"]);
@@ -3728,6 +3682,9 @@
 						LeaPlusDB["Frames"]["BuffFrame"]["Scale"] = 0.80
 						BuffFrame:SetScale(LeaPlusDB["Frames"]["BuffFrame"]["Scale"])
 						LeaPlusLC["DragBuffFrame"]:SetScale(LeaPlusDB["Frames"]["BuffFrame"]["Scale"]);
+						LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Scale"] = 1.25
+						PlayerPowerBarAlt:SetScale(LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Scale"])
+						LeaPlusLC["DragPlayerPowerBarAlt"]:SetScale(LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Scale"]);
 						-- Set the slider to the selected frame (if there is one)
 						if currentframe then LeaPlusCB["FrameScale"]:SetValue(LeaPlusDB["Frames"][currentframe]["Scale"]); end
 						-- Save locations
@@ -3759,6 +3716,7 @@
 						LeaPlusLC["DragGhostFrame"]:SetSize(130 * LeaPlusLC["gscale"], 46 * LeaPlusLC["gscale"]);
 						LeaPlusLC["DragUIWidgetTopCenterContainerFrame"]:SetSize(160 * LeaPlusLC["gscale"], 79 * LeaPlusLC["gscale"]);
 						LeaPlusLC["DragBuffFrame"]:SetSize(280 * LeaPlusLC["gscale"], 225 * LeaPlusLC["gscale"]);
+						LeaPlusLC["DragPlayerPowerBarAlt"]:SetSize(130 * LeaPlusLC["gscale"], 46 * LeaPlusLC["gscale"]);
 					end
 				end
 			end)
@@ -5776,12 +5734,16 @@
 			Zn(L["Dungeons"], L["Battle for Azeroth"], "|cffffd800", {""})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], "|cffffd800" .. L["Battle for Azeroth"], {""})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Atal'Dazar"]					, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Atal'Dazar"], prefol, "MUS_80_DGN_CityofGold#93663",})
+			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Battle of Dazar'alor"]		, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Battle of Dazar'alor"], prefol, "MUS_81_RAID_Zuldazar_Alliance_BloodMoon#126421", "MUS_81_RAID_Zuldazar_Alliance_Port#126352", "MUS_81_RAID_Zuldazar_Horde_Walk#125915", "MUS_81_RAID_Zuldazar_Horde_Port#126348", "MUS_81_RAID_Zuldazar_Pyramid#126329", "MUS_81_RAID_Zuldazar_Boss_Jaina02#126356",})
+			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Crucible of Storms"]			, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Crucible of Storms"], prefol, "MUS_80_DGN_ShrineOfStorms_Shadows#116123",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Freehold"]					, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Freehold"], prefol, "MUS_70_Nightmare_Solo#73392", "MUS_80_DGN_Freehold_Outskirts#93660",})
+			Zn(L["Dungeons"], L["Battle for Azeroth"], L["King's Rest"]					, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["King's Rest"], prefol, "MUS_80_DGN_King'sRest#117218",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Motherlode"]					, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Motherlode"], prefol, "MUS_80_DGN_TheMotherlode_General_Walk#117425", "MUS_80_DGN_TheMotherlode_BombArea_Walk#117427",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Shrine of the Storm"]			, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Shrine of the Storm"], prefol, "MUS_80_DGN_ShrineOfStorms_Walk#116118", "MUS_80_DGN_ShrineOfStorms_Shadows#116123",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Siege of Boralus"]			, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Siege of Boralus"], prefol, "MUS_80_DGN_SiegeOfBoralus_Walk#116219", "MUS_80_DGN_SiegeOfBoralus_Kraken#116225",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Temple of Sethraliss"]		, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Temple of Sethraliss"], prefol, "MUS_80_DGN_TempleofSethraliss#117251",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Tol Dagor"]					, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Tol Dagor"], prefol, "MUS_80_DGN_TolDagor_Outside#116230", "MUS_80_DGN_TolDagor_Armory#117224",})
+			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Uldir"]						, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Uldir"], prefol, "MUS_80_RAID_Uldir_Blood#117988", "MUS_80_RAID_Uldir_Corruption#117670", "MUS_80_RAID_Uldir_G'huun_Intro#118031", "MUS_80_RAID_Uldir_Taloc_Intro#118029", "MUS_80_RAID_Uldir_Zul_Intro#118030",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Underrot"]					, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Underrot"], prefol, "MUS_80_DGN_TheUnderrot#117262",})
 			Zn(L["Dungeons"], L["Battle for Azeroth"], L["Waycrest Manor"]				, {	"|cffffd800" .. L["Dungeons"] .. ": " .. L["Waycrest Manor"], prefol, "MUS_80_DGN_WaycrestManor_Outdoors#117086",})
 
@@ -5808,6 +5770,8 @@
 				"|cffffd800", "|cffffd800" .. L["Adventure"], "MUS_80_Islands_Adventure_Walk#115050", "MUS_80_Islands_Adventure_Invasion_Walk#115414", "MUS_80_Islands_Adventure_Victory#115053",
 				"|cffffd800", "|cffffd800" .. L["Mystical"], "MUS_80_Islands_Mystical_Walk#115689", "MUS_80_Islands_Mystical_Invasion_Walk#117352",
 				"|cffffd800", "|cffffd800" .. L["Winter"], "MUS_80_Islands_Winter_Walk#117377", "MUS_80_Islands_Winter_Invasion_Walk#117378",
+				"|cffffd800", "|cffffd800" .. L["Havenswood"], "MUS_81_Islands_Havenswood_Walk#125908", 
+				"|cffffd800", "|cffffd800" .. L["Jorundall"], "MUS_81_Islands_Jorundall_Walk#126149",
 			})
 			Zn(L["Various"], L["Various"], L["Main Titles"]								, {	"|cffffd800" .. L["Various"] .. ": " .. L["Main Titles"], prefol, "GS_Retail#10924", "GS_BurningCrusade#10925", "GS_LichKing#12765", "GS_Cataclysm#23640", "MUS_50_HeartofPandaria_MainTitle#28509", "MUS_60_MainTitle#40169", "MUS_70_MainTitle#56353", "MUS_80_MainTitle#113559"}) -- "MUS_1.0_MainTitle_Original#47598"
 			Zn(L["Various"], L["Various"], L["Music Rolls"]								, {	"|cffffd800" .. L["Various"] .. ": " .. L["Music Rolls"], prefol, "MUS_61_GarrisonMusicBox_01#49511", "MUS_61_GarrisonMusicBox_02#49512", "MUS_61_GarrisonMusicBox_03#49513", "MUS_61_GarrisonMusicBox_04#49514", "MUS_61_GarrisonMusicBox_05#49515", "MUS_61_GarrisonMusicBox_06#49516", "MUS_61_GarrisonMusicBox_07#49529", "MUS_61_GarrisonMusicBox_08#49530", "MUS_61_GarrisonMusicBox_09#49531", "MUS_61_GarrisonMusicBox_10#49533", "MUS_61_GarrisonMusicBox_11#49535", "MUS_61_GarrisonMusicBox_12#49536", "MUS_61_GarrisonMusicBox_13#49538", "MUS_61_GarrisonMusicBox_14#49539", "MUS_61_GarrisonMusicBox_15#49540", "MUS_61_GarrisonMusicBox_16#49541", "MUS_61_GarrisonMusicBox_17#49543", "MUS_61_GarrisonMusicBox_18#49544", "MUS_61_GarrisonMusicBox_19#49545", "MUS_61_GarrisonMusicBox_20#49546", "MUS_61_GarrisonMusicBox_21#49526", "MUS_61_GarrisonMusicBox_22#49528", "MUS_61_GarrisonMusicBox_23_Alliance#49517", "MUS_61_GarrisonMusicBox_24_Alliance#49518", "MUS_61_GarrisonMusicBox_25_Alliance#49519", "MUS_61_GarrisonMusicBox_26_Alliance#49520", "MUS_61_GarrisonMusicBox_27_Alliance#49521", "MUS_61_GarrisonMusicBox_28_Alliance#49522", "MUS_61_GarrisonMusicBox_29_Alliance#49523", "MUS_61_GarrisonMusicBox_30_Alliance#49524", "MUS_61_GarrisonMusicBox_31_Alliance#49525", "MUS_61_GarrisonMusicBox_23_Horde#49555", "MUS_61_GarrisonMusicBox_24_Horde#49554", "MUS_61_GarrisonMusicBox_25_Horde#49553", "MUS_61_GarrisonMusicBox_26_Horde#49552", "MUS_61_GarrisonMusicBox_27_Horde#49551", "MUS_61_GarrisonMusicBox_28_Horde#49550", "MUS_61_GarrisonMusicBox_29_Horde#49549", "MUS_61_GarrisonMusicBox_30_Horde#49548", "MUS_61_GarrisonMusicBox_31_Horde#49547",})
@@ -5820,6 +5784,7 @@
 				"|cffffd800", "|cffffd800" .. L["Diablo Anniversary"], "MUS_71_Event_DiabloAnniversary_TristramGuitar (Everything)#78803",
 			})
 			Zn(L["Various"], L["Various"], L["Warfronts"]								, {	"|cffffd800" .. L["Various"] .. ": " .. L["Warfronts"], prefol,
+				"|cffffd800", "|cffffd800" .. L["Battle for Darkshore"], "MUS_81_Warfronts_Darkshore_Alliance_General_Walk#125670", "MUS_81_Warfronts_Darkshore_Alliance_FinalAssault#125671", "MUS_81_Warfronts_Darkshore_Horde_General_Walk#125883", "MUS_81_Warfronts_Darkshore_Horde_FinalAssault#125884", 
 				"|cffffd800", "|cffffd800" .. L["Battle for Stromgarde"], "MUS_80_Warfronts_Arathi_Alliance_General_Walk#116361", "MUS_80_Warfront_Arathi_Horde_General_Walk#85251", "MUS_80_ArathiHighlands_PostWarfronts#120246",
 			})
 
@@ -5832,7 +5797,7 @@
 			Zn(L["Movies"], L["Movies"], L["Mists of Pandaria"]							, {	"|cffffd800" .. L["Movies"] .. ": " .. L["Mists of Pandaria"], prefol, L["Mists of Pandaria"] .. " |r(115)", L["Risking It All"] .. " |r(117)", L["Leaving the Wandering Isle"] .. " |r(116)", L["The King's Command"] .. " |r(119)", L["The Art of War"] .. " |r(120)", L["Battle of Serpent's Heart"] .. " |r(118)", L["The Fleet in Krasarang (Horde)"] .. " |r(128)", L["The Fleet in Krasarang (Alliance)"] .. " |r(127)", L["Hellscream's Downfall (Horde)"] .. " |r(151)", L["Hellscream's Downfall (Alliance)"] .. " |r(152)"})
 			Zn(L["Movies"], L["Movies"], L["Warlords of Draenor"]						, {	"|cffffd800" .. L["Movies"] .. ": " .. L["Warlords of Draenor"], prefol, L["Warlords of Draenor"] .. " |r(195)", L["Darkness Falls"] .. " |r(167)", L["The Battle of Thunder Pass"] .. " |r(168)", L["And Justice for Thrall"] .. " |r(177)", L["Into the Portal"] .. " |r(185)", L["A Taste of Iron"] .. " |r(187)", L["The Battle for Shattrath"] .. " |r(188)", L["Establish Your Garrison (Horde)"] .. " |r(189)", L["Establish Your Garrison (Alliance)"] .. " |r(192)", L["Bigger is Better (Horde)"] .. " |r(190)", L["Bigger is Better (Alliance)"] .. " |r(193)", L["My Very Own Castle (Horde)"] .. " |r(191)", L["My Very Own Castle (Alliance)"] .. " |r(194)", L["Gul'dan Ascendant"] .. " |r(270)", L["Shipyard Construction (Horde)"] .. " |r(292)", L["Shipyard Construction (Alliance)"] .. " |r(293)", L["Gul'dan's Plan"] .. "  |r(294)", L["Victory in Draenor!"] .. "  |r(295)"})
 			Zn(L["Movies"], L["Movies"], L["Legion"]									, {	"|cffffd800" .. L["Movies"] .. ": " .. L["Legion"], prefol, L["Legion"] .. " |r(470)", L["The Invasion Begins"] .. " |r(469)", L["Return to the Black Temple"] .. " |r(471)", L["The Demon's Trail"] .. " |r(473)", L["The Fate of Val'sharah"] .. " |r(472)", L["Fate of the Horde"] .. " |r(474)", L["A New Life for Undeath"] .. " |r(475)", L["Harbingers Gul'dan"] .. " |r(476)", L["Harbingers Khadgar"] .. " |r(477)", L["Harbingers Illidan"] .. " |r(478)", L["The Nightborne Pact"] .. " |r(485)", L["The Battle for Broken Shore"] .. " |r(487)", L["A Falling Star"] .. " |r(489)", L["Destiny Unfulfilled"] .. " |r(490)", L["Victory at The Nighthold"] .. " |r(635)", L["A Found Memento"] .. " |r(636)", L["Kil'jaeden's Downfall"] .. " |r(656)", L["Arrival on Argus"] .. " |r(677)", L["Rejection of the Gift"] .. " |r(679)", L["Reincarnation of Alleria Windrunner"] .. " |r(682)", L["Rise of Argus"] .. " |r(687)", L["Antorus Ending"] .. " |r(689)", L["Epilogue (Horde)"] .. " |r(717)", L["Epilogue (Alliance)"] .. " |r(716)"})
-			Zn(L["Movies"], L["Movies"], L["Battle for Azeroth"]						, {	"|cffffd800" .. L["Movies"] .. ": " .. L["Battle for Azeroth"], prefol, L["Battle for Azeroth"] .. " |r(852)", L["Warbringers Sylvanas"] .. " |r(853)", L["Battle for Lordaeron (Horde)"] .. " |r(855)", L["Battle for Lordaeron (Alliance)"] .. " |r(856)", L["Embers of War"] .. " |r(854)", L["Zandalar Intro"] .. " |r(857)", L["Zandalar Battle"] .. " |r(858)", L["Jaina Returns to Kul Tiras"] .. " |r(859)", L["Jaina's Nightmare"] .. " |r(860)"})
+			Zn(L["Movies"], L["Movies"], L["Battle for Azeroth"]						, {	"|cffffd800" .. L["Movies"] .. ": " .. L["Battle for Azeroth"], prefol, L["Battle for Azeroth"] .. " |r(852)", L["Warbringers Sylvanas"] .. " |r(853)", L["Battle for Lordaeron (Horde)"] .. " |r(855)", L["Battle for Lordaeron (Alliance)"] .. " |r(856)", L["Embers of War"] .. " |r(854)", L["Zandalar Intro"] .. " |r(857)", L["Zandalar Battle"] .. " |r(858)", L["Jaina Returns to Kul Tiras"] .. " |r(859)", L["Jaina's Nightmare"] .. " |r(860)",L["Terror of Darkshore"] .. " |r(874)",})
 
 			-- Give zone table a file level scope so slash command function can access it
 			LeaPlusLC["ZoneList"] = ZoneList
@@ -6074,7 +6039,7 @@
 			conbtn[L["Search"]]:ClearAllPoints()
 			conbtn[L["Search"]]:SetPoint("BOTTOMLEFT", sBox, "TOPLEFT", -4, 0)
 
-			-- Set initial search data and clear search box when any other button is clicked
+			-- Set initial search data
 			for q, w in pairs(ZoneList) do
 				if conbtn[w] then
 					conbtn[w]:HookScript("OnClick", function()
@@ -6904,7 +6869,6 @@
 
 				-- Settings
 				LeaPlusLC:LoadVarChk("ShowMinimapIcon", "On")				-- Show minimap button
-				LeaPlusLC:LoadVarNum("MinimapIconPos", -158.1, -180, 180)	-- Minimap button slider
 				LeaPlusLC:LoadVarChk("EnableHotkey", "Off")					-- Enable hotkey
 
 				LeaPlusLC:LoadVarNum("PlusPanelScale", 1, 1, 2)				-- Panel scale
@@ -7065,7 +7029,6 @@
 
 			-- Settings
 			LeaPlusDB["ShowMinimapIcon"] 		= LeaPlusLC["ShowMinimapIcon"]
-			LeaPlusDB["MinimapIconPos"] 		= LeaPlusLC["MinimapIconPos"]
 			LeaPlusDB["EnableHotkey"] 			= LeaPlusLC["EnableHotkey"]
 
 			LeaPlusDB["PlusPanelScale"] 		= LeaPlusLC["PlusPanelScale"]
@@ -8674,6 +8637,13 @@
 				LeaPlusDB["Frames"]["BuffFrame"]["YOffset"] = 0
 				LeaPlusDB["Frames"]["BuffFrame"]["Scale"] = 0.80
 
+				LeaPlusDB["Frames"]["PlayerPowerBarAlt"] = {}
+				LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Point"] = "CENTER"
+				LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Relative"] = "CENTER"
+				LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["XOffset"] = 0
+				LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["YOffset"] = -160
+				LeaPlusDB["Frames"]["PlayerPowerBarAlt"]["Scale"] = 1.25
+
 				LeaPlusDB["ClassColFrames"] = "On"				-- Class colored frames
 				LeaPlusDB["ShowPlayerChain"] = "On"				-- Show player chain
 				LeaPlusDB["PlayerChainMenu"] = 3				-- Player chain style
@@ -9033,7 +9003,7 @@
 	pg = "Page6";
 
 	LeaPlusLC:MakeTx(LeaPlusLC[pg], "Features"					, 	146, -72);
-	LeaPlusLC:MakeCB(LeaPlusLC[pg], "FrmEnabled"				,	"Manage frames"					, 	146, -92, 	true,	"If checked, you will be able to change the position and scale of the player frame, target frame, buff frame, widget top center frame, ghost frame and timer bar.")
+	LeaPlusLC:MakeCB(LeaPlusLC[pg], "FrmEnabled"				,	"Manage frames"					, 	146, -92, 	true,	"If checked, you will be able to change the position and scale of the following frames:|n|n- Player frame|n- Target frame|n- Buffs frame|n- Widget top center frame|n- Ghost frame|n- Timer bar|n- Player power bar")
 	LeaPlusLC:MakeCB(LeaPlusLC[pg], "ClassColFrames"			, 	"Class colored frames"			,	146, -112, 	true,	"If checked, class coloring will be used in the player frame, target frame and focus frame.")
 	LeaPlusLC:MakeCB(LeaPlusLC[pg], "ShowPlayerChain"			, 	"Show player chain"				,	146, -132, 	true,	"If checked, you will be able to show a rare, elite or rare elite chain around the player frame.")
 	LeaPlusLC:MakeCB(LeaPlusLC[pg], "ShowRaidToggle"			, 	"Raid frame toggle"				,	146, -152, 	true,	"If checked, the button to toggle the raid container frame will be shown just above the raid management frame (left side of the screen) instead of in the raid management frame itself.|n|nThis allows you to toggle the raid container frame without needing to open the raid management frame.")
@@ -9085,7 +9055,7 @@
 	pg = "Page8";
 
 	LeaPlusLC:MakeTx(LeaPlusLC[pg], "Addon"						, 146, -72);
-	LeaPlusLC:MakeCB(LeaPlusLC[pg], "ShowMinimapIcon"			, "Show minimap button"				, 146, -92,		true,	"If checked, a minimap button will be available.|n|nClick - Toggle options panel.|n|nSHIFT/Left-click - Toggle music.|n|nCTRL/Left-click - Toggle minimap target tracking.|n|nCTRL/Right-click - Toggle errors (if enabled).|n|nCTRL/SHIFT/Left-click - Toggle Zygor (if installed).|n|nCTRL/SHIFT/Right-click - Toggle windowed mode.")
+	LeaPlusLC:MakeCB(LeaPlusLC[pg], "ShowMinimapIcon"			, "Show minimap button"				, 146, -92,		false,	"If checked, a minimap button will be available.|n|nClick - Toggle options panel.|n|nSHIFT/Left-click - Toggle music.|n|nCTRL/Left-click - Toggle minimap target tracking.|n|nCTRL/Right-click - Toggle errors (if enabled).|n|nCTRL/SHIFT/Left-click - Toggle Zygor (if installed).|n|nCTRL/SHIFT/Right-click - Toggle windowed mode.")
 	LeaPlusLC:MakeCB(LeaPlusLC[pg], "EnableHotkey"				, "Enable hotkey"					, 146, -112,	true,	"If checked, you can open Leatrix Plus by pressing CTRL/Z.")
 
 	LeaPlusLC:MakeTx(LeaPlusLC[pg], "Scale", 340, -72);

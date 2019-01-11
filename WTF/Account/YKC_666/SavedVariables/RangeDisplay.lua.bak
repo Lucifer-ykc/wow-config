@@ -45,10 +45,10 @@ RangeDisplayDB3 = {
 				["mouseover"] = {
 					["mouseAnchor"] = false,
 					["y"] = 114.999938964844,
-					["relPoint"] = "BOTTOM",
+					["x"] = 91.9998397827149,
 					["fontSize"] = 20,
 					["point"] = "BOTTOM",
-					["x"] = 91.9998397827149,
+					["relPoint"] = "BOTTOM",
 				},
 				["arena5"] = {
 				},

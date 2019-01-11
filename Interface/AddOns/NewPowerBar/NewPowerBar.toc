@@ -7,6 +7,7 @@
 ## Author: Aguan@BF
 ## SavedVariables: NewPowerInfo_Global
 ## SavedVariablesPerCharacter: NewPowerInfo_Character
+## Dependencies: BigFoot
 ## X-Revision: BigFoot
 ## LoadOnDemand: 1
 

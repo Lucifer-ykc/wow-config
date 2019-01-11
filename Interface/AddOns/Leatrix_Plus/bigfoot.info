@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
-    <AddOn displayName="LeatrixPlus游戏功能辅助增强" img="/data/wow/527/ui_logo.jpg" info="ui/527" name="LeatrixPlus游戏功能辅助增强" package="down/527/12963/Leatrix_Plus-8.0_.13_.zip" update="2018-11-09" version="8.0.13" />
+    <AddOn displayName="LeatrixPlus游戏功能辅助增强" img="/data/wow/527/ui_logo.jpg" info="ui/527" name="LeatrixPlus游戏功能辅助增强" package="down/527/13090/Leatrix_Plus-8.1_.00_.zip" update="2019-01-08" version="8.1.00" />
 </AddOnList>

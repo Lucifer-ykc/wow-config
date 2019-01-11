@@ -7,7 +7,7 @@
 ## Notes-zhTW: |cff00ff00WorldQuestTracker|r|n|cffbc8f8f追踪并在大地图上显示所有世界任务。|r
 ## SavedVariables: WQTrackerDB
 ## SavedVariablesPerCharacter: WQTrackerDBChr
-## X-Curse-Packaged-Version: 351
+## X-Curse-Packaged-Version: 353
 ## Dependencies: BigFoot
 ## X-Revision: BigFoot
 ## LoadOnDemand: 1

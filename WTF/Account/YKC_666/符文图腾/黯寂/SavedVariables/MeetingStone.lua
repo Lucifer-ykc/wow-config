@@ -5,7 +5,7 @@ MEETINGSTONE_CHARACTER_DB = {
 	},
 	["profiles"] = {
 		["黯寂 - 符文图腾"] = {
-			["version"] = "80000.07",
+			["version"] = "80100.01",
 			["settings"] = {
 				["storage"] = {
 					["y"] = 0,
