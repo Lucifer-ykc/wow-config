@@ -40,4 +40,3 @@ Holidays\HeadlessHorseman.lua
 Holidays\Greench.lua
 
 Quests\Plants.lua
-Quests\DemonicInvasions.lua

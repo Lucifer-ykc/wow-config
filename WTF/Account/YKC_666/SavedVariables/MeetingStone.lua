@@ -11,7 +11,7 @@ MEETINGSTONE_UI_DB = {
 				["new"] = false,
 			},
 			["ActivitiesData"] = {
-				["data"] = "$1$Z$S204`魔兽主播活动`高玩教你“单刷”奥迪尔（联盟）`1月12日（周六）20点，高玩教你“单刷”奥迪尔（联盟）*J那个元老级的魔兽世界玩家，他又来了！这次他来到了奥迪尔，给我们带来熟悉的“教学”。想要亲身莅临他的教学现场吗？斗鱼TV：高玩苍天哥（房间号：622414），让我们相聚奥迪尔，感受“高玩”带给我们的欢乐吧！*J魔兽主播活动QQ交流群：603459231`http://w.163.com/special/convene-stone/`1`3$$",
+				["data"] = "$1$Z$S206`魔兽主播活动`达萨罗之战（部落）`1月26日（周六）20点，达萨罗之战（部落）*J达萨罗——这座雄伟而又金碧辉煌的巨魔都城，如今却被联盟攻陷，远征纳兹米尔的部落勇士们，赶快加入斗鱼TV：炎凉大宝宝（房间号：128314）的勤王之师，拉斯塔哈大王命在旦夕，我们的行程刻不容缓。*J魔兽主播活动QQ交流群：603459231`http://w.163.com/special/convene-stone/`1`3$S207`魔兽主播活动`达萨罗之战（联盟）`2月2日（周六）20点，达萨罗之战（联盟）*J突袭赞达拉联盟付出了大工匠被俘、吉安娜受伤的不小代价，但所幸大军还能全身而退。赶快加入斗鱼TV：扶风西子（房间号：429842）的雄狮之师，在安度因国王的运筹帷幄之下，智取达萨罗。*J魔兽主播活动QQ交流群：603459231`http://w.163.com/special/convene-stone/`1`3$$",
 				["new"] = true,
 			},
 			["MallData"] = {
@@ -49,15 +49,10 @@ MEETINGSTONE_UI_DB = {
 			}, -- [7]
 			["default"] = true,
 		},
-		["version"] = "80100.01",
+		["version"] = "80100.02",
 		["filters"] = {
 			[9] = {
 				["BossKilled"] = {
-					["min"] = 0,
-					["enable"] = false,
-					["max"] = 0,
-				},
-				["Members"] = {
 					["min"] = 0,
 					["enable"] = false,
 					["max"] = 0,
@@ -68,6 +63,11 @@ MEETINGSTONE_UI_DB = {
 					["max"] = 0,
 				},
 				["Age"] = {
+					["min"] = 0,
+					["enable"] = false,
+					["max"] = 0,
+				},
+				["Members"] = {
 					["min"] = 0,
 					["enable"] = false,
 					["max"] = 0,
@@ -79,17 +79,17 @@ MEETINGSTONE_UI_DB = {
 					["max"] = 0,
 					["enable"] = false,
 				},
-				["Members"] = {
-					["min"] = 0,
-					["max"] = 0,
-					["enable"] = false,
-				},
 				["ItemLevel"] = {
 					["min"] = 0,
 					["max"] = 0,
 					["enable"] = false,
 				},
 				["Age"] = {
+					["min"] = 0,
+					["max"] = 0,
+					["enable"] = false,
+				},
+				["Members"] = {
 					["min"] = 0,
 					["max"] = 0,
 					["enable"] = false,

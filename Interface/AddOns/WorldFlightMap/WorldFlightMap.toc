@@ -6,7 +6,7 @@
 ## Notes-zhCN: |cff00ff00WorldFlightMap|r
 ## Notes-zhTW: |cff00ff00WorldFlightMap|r
 ## Author: Semlar
-## Version: 8.0.0.10b
+## Version: 8.1.0.0
 ## Dependencies: Blizzard_FlightMap
 ## X-Revision: BigFoot
 ## LoadOnDemand: 1

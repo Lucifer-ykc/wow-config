@@ -33,7 +33,7 @@ local INSTANCE_SAVED, TRANSFER_ABORT_TOO_MANY_INSTANCES, NO_RAID_INSTANCES_SAVED
   INSTANCE_SAVED, TRANSFER_ABORT_TOO_MANY_INSTANCES, NO_RAID_INSTANCES_SAVED
 
 local ALREADY_LOOTED = ERR_LOOT_GONE:gsub("%(.*%)","")
-ALREADY_LOOTED = ALREADY_LOOTED:gsub("(.*)","") -- fix on zhCN and zhTW
+ALREADY_LOOTED = ALREADY_LOOTED:gsub("（.*）","") -- fix on zhCN and zhTW
 
 -- Unit Aura functions that return info about the first aura matching the spellName or spellID given on the unit.
 local SI_GetUnitAura = function(unit, spell, filter)
@@ -112,8 +112,7 @@ end
 addon.chatMsg = chatMsg
 
 local function debug(...)
-  --addon.db.dbg = true
-  if addon.db.dbg then
+  if addon.db.Tooltip.DebugMode then
     chatMsg(...)
   end
 end
@@ -137,17 +136,18 @@ local function GetTimeToTime(val)
 end
 
 function addon:timedebug()
-  chatMsg("Version: %s (%s)", addon.version, addon.revision)
+  chatMsg("Version: %s", addon.version)
   chatMsg("Realm: %s (%s)", GetRealmName(), addon:GetRegion())
   chatMsg("Zone: %s (%s)", GetRealZoneText(), addon:GetCurrentMapAreaID())
   chatMsg("time()=%s GetTime()=%s", time(), GetTime())
   chatMsg("Local time: %s local", date("%A %c"))
   chatMsg("GetGameTime: %s:%s server",GetGameTime())
-  chatMsg("C_Calendar.GetDate: %s %s/%s/%s server",C_Calendar.GetDate())
+  local t = C_DateAndTime.GetCurrentCalendarTime()
+  chatMsg("C_DateAndTime.GetCurrentCalendarTime: %s %s/%s/%s server",t.weekday,t.month,t.monthDay,t.year)
   chatMsg("GetQuestResetTime: %s",SecondsToTime(GetQuestResetTime()))
   chatMsg(date("Daily reset: %a %c local (based on GetQuestResetTime)",time()+GetQuestResetTime()))
   chatMsg("Local to server offset: %d hours",SavedInstances:GetServerOffset())
-  local t = SavedInstances:GetNextDailyResetTime()
+  t = SavedInstances:GetNextDailyResetTime()
   chatMsg("Next daily reset: %s local, %s server",date("%a %c",t), date("%a %c",t+3600*SavedInstances:GetServerOffset()))
   t = SavedInstances:GetNextWeeklyResetTime()
   chatMsg("Next weekly reset: %s local, %s server",date("%a %c",t), date("%a %c",t+3600*SavedInstances:GetServerOffset()))
@@ -283,6 +283,7 @@ addon.defaultDB = {
   -- PlayedTotal: integer
   -- Money: integer
   -- Zone: string
+  -- Warmode: boolean
 
   -- currency: key: currencyID  value:
   -- amount: integer
@@ -588,7 +589,8 @@ end
 function addon:GetServerOffset()
   local serverDate = C_DateAndTime.GetCurrentCalendarTime()
   local serverDay, serverWeekday, serverMonth, serverMinute, serverHour, serverYear = serverDate.monthDay, serverDate.weekday, serverDate.month, serverDate.minute, serverDate.hour, serverDate.year
-  local localDay = tonumber(date("%w")) -- 0-based starts on Sun
+  -- #211: date("%w") is 0-based starts on Sun
+  local localDay = tonumber(date("%w")) + 1
   local localHour, localMinute = tonumber(date("%H")), tonumber(date("%M"))
   if serverDay == (localDay + 1)%7 then -- server is a day ahead
     serverHour = serverHour + 24
@@ -736,12 +738,12 @@ local function UpdateEventInfo()
     debug("eventID: " .. event.eventID)
     if event.sequenceType == "START" then
       local hour, minute = event.startTime.hour, event.startTime.minute
-      if hour > current.hour or (hour == current.hour and minute > current.minute) then
+      if hour < current.hour or (hour == current.hour and minute < current.minute) then
         eventInfo[event.eventID] = true
       end
     elseif event.sequenceType == "END" then
       local hour, minute = event.startTime.hour, event.startTime.minute
-      if hour < current.hour or (hour == current.hour and minute < current.minute) then
+      if hour > current.hour or (hour == current.hour and minute > current.minute) then
         eventInfo[event.eventID] = true
       end
     else -- "ONGOING"
@@ -1607,6 +1609,7 @@ function addon:UpdateToonData()
   else
     t.Race = lrace
   end
+  t.Warmode = C_PvP.IsWarModeDesired()
 
   t.LastSeen = time()
 end
@@ -1748,6 +1751,9 @@ local function ShowToonTooltip(cell, arg, ...)
   end
   if t.Money then
     indicatortip:AddLine(MONEY,addon:formatNumber(t.Money,true))
+  end
+  if t.Warmode and t.Warmode == true then
+    indicatortip:AddLine(PVP_LABEL_WAR_MODE, PVP_WAR_MODE_ENABLED)
   end
   if t.Zone then
     indicatortip:AddLine(ZONE,t.Zone)
@@ -2346,7 +2352,7 @@ end
 function core:OnInitialize()
   local versionString = GetAddOnMetadata(addonName, "version")
   --[===[@debug@
-  if versionString == "8.0.8-35-g42d2e85" then
+  if versionString == "8.0.9-5-g3880be3" then
     versionString = "Dev"
   end
   --@end-debug@]===]
@@ -3857,16 +3863,13 @@ function core:ShowTooltip(anchorframe)
   local firstEmissary, expansionLevel = true
   for expansionLevel, _ in pairs(addon.Emissaries) do
     if addon.db.Tooltip["Emissary" .. expansionLevel] or showall then
-      local show, tooltips = {
-        [1] = {},
-        [2] = {},
-        [3] = {},
-      }, {}
+      local tooltips, show = {}, {}
       for toon, t in cpairs(addon.db.Toons, true) do
         if t.Emissary and t.Emissary[expansionLevel] and t.Emissary[expansionLevel].unlocked then
           local day, info
           for day, info in pairs(t.Emissary[expansionLevel].days) do
             if showall or addon.db.Tooltip.EmissaryShowCompleted == true or info.isComplete == false then
+              if not show[day] then show[day] = {} end
               if not show[day][1] then
                 show[day][1] = t.Faction
               elseif show[day][1] ~= t.Faction then

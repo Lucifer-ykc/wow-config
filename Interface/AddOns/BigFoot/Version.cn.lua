@@ -1,6 +1,6 @@
 if GetLocale()~='zhCN' then return end
 local main= "8.1.0."
-local minor = "732"
+local minor = "736"
 BIGFOOT_VERSION = "zhCN"..main..minor;
 
 function GetMinorVersion()
@@ -8,6 +8,32 @@ function GetMinorVersion()
 end
 
 BigFootChangelog_ah();
+
+	BigFootChangelog_at("2019/01/24 (8.1.0.736)")
+	BigFootChangelog_ar("地图标记","升级至最新版本(1.5.4)")
+	BigFootChangelog_ar("界面调整","升级至最新版本(4.8.1-4)。")
+	BigFootChangelog_ar("首领报警","升级至最新版本(8.1.5.18196)。")
+
+
+	BigFootChangelog_at("2019/01/23 (8.1.0.735)")
+	BigFootChangelog_ar("团队记录","添加新团队本首领支持。")
+	BigFootChangelog_ar("进度管家","升级至最新版本(8.0.9-5)。")
+	BigFootChangelog_ar("首领报警","升级至最新版本(8.1.3.18181)。")
+
+
+	BigFootChangelog_at("2019/01/21 (8.1.0.734)")
+	BigFootChangelog_ar("竞技语音","升级至最新版本(B4)。")
+	BigFootChangelog_ar("伤害统计","升级至最新版本(8.1.0c)。")
+	BigFootChangelog_ar("首领报警","升级至最新版本(8.1.3.18170)。")
+
+
+	BigFootChangelog_at("2019/01/18 (8.1.0.733)")
+	BigFootChangelog_ar("集合石","升级至最新版本(80100.02)。")
+	BigFootChangelog_ar("世界任务","升级至最新版本(355)。")
+	BigFootChangelog_ar("可接任务","升级至最新版本(099)。")
+	BigFootChangelog_ar("进度管家","升级至最新版本(8.0.9-4)。")
+	BigFootChangelog_ar("首领报警","升级至最新版本(8.1.3.18167)。")
+
 
 	BigFootChangelog_at("2019/01/04 (8.1.0.732)")
 	BigFootChangelog_ar("世界任务","升级至最新版本(353)。")
@@ -1078,4 +1104,4 @@ BigFootChangelog_ah();
 BigFootChangelog_af();
 
 
-BF_VERSION_CHECKSUM = "62"
+BF_VERSION_CHECKSUM = "58"

@@ -1,5 +1,5 @@
 --[[
-Copyright (c) 2010-2017, Hendrik "nevcairiel" Leppkes <h.leppkes@gmail.com>
+Copyright (c) 2010-2019, Hendrik "nevcairiel" Leppkes <h.leppkes@gmail.com>
 
 All rights reserved.
 
@@ -34,8 +34,6 @@ local MINOR_VERSION = 74
 if not LibStub then error(MAJOR_VERSION .. " requires LibStub.") end
 local lib, oldversion = LibStub:NewLibrary(MAJOR_VERSION, MINOR_VERSION)
 if not lib then return end
-
-local WoW80 = select(4, GetBuildInfo()) >= 80000
 
 -- Lua functions
 local _G = _G
@@ -624,7 +622,7 @@ function Generic:UpdateConfig(config)
 		error("LibActionButton-1.0: UpdateConfig requires a valid configuration!", 2)
 	end
 	local oldconfig = self.config
-	if not self.config then self.config = {} end
+	self.config = {}
 	-- merge the two configs
 	merge(self.config, config, DefaultConfig)
 
@@ -1521,12 +1519,7 @@ Action.GetSpellId              = function(self)
 	if actionType == "spell" then
 		return id
 	elseif actionType == "macro" then
-		if WoW80 then
-			return (GetMacroSpell(id))
-		else
-			local _, _, spellId = GetMacroSpell(id)
-			return spellId
-		end
+		return (GetMacroSpell(id))
 	end
 end
 Action.GetLossOfControlCooldown = function(self) return GetActionLossOfControlCooldown(self._state_action) end

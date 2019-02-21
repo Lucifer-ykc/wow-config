@@ -110,3 +110,4 @@ dct_options: enabled
 dct_spellAlert: enabled
 ezIcons: enabled
 wMarker: enabled
+DBM-ZuldazarRaid: enabled

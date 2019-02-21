@@ -6,7 +6,7 @@
 ## Notes-zhCN: |cff00ff00HandyNotes|r
 ## Notes-zhTW: |cff00ff00HandyNotes|r
 ## Author: Xinhuan
-## Version: v1.5.3
+## Version: v1.5.4
 ## X-Category: Map
 ## X-eMail: xinhuan @ gmail DOT com
 ## OptionalDeps: Ace3, TomTom, HereBeDragons

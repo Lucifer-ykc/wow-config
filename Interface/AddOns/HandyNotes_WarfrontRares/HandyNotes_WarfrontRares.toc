@@ -5,7 +5,7 @@
 ## Notes: Warfront Rares
 ## Notes-zhCN: |cff00ff00HandyNotes_WarfrontRares|r
 ## Notes-zhTW: |cff00ff00HandyNotes_WarfrontRares|r
-## Version: 0.5.3
+## Version: 0.5.4
 ## OptionalDeps: Ace3
 ## RequiredDeps: HandyNotes
 ## X-Embeds: Ace3

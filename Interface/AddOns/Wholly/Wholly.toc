@@ -6,7 +6,7 @@
 ## Notes-zhCN: |cff00ff00Wholly|r|n|cffbc8f8f在世界地图上显示可接任务。|r
 ## Notes-zhTW: |cff00ff00Wholly|r|n|cffbc8f8f在世界地圖上顯示可接任務。|r
 ## Author: Scott M Harrison
-## Version: 069
+## Version: 070
 ## SavedVariablesPerCharacter: WhollyDatabase
 ## Dependencies: Grail
 ## X-Revision: BigFoot

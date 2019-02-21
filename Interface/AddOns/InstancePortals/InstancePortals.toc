@@ -6,7 +6,7 @@
 ## Notes: Displays dungeon & raid portals on the world map
 ## Notes-zhCN: |cff00ff00InstancePortals|r
 ## Notes-zhTW: |cff00ff00InstancePortals|r
-## Version: 19
+## Version: 20
 ## SavedVariablesPerCharacter: IPUITrackInstancePortals IPUITrackInstancePortalsOnContinents
 ## X-Revision: BigFoot
 

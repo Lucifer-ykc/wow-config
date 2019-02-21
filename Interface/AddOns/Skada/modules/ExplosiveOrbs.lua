@@ -5,7 +5,7 @@ L["Explosive Orbs"] = "Fel Explosive"
 L["Number of player spells"] = "Number of player spells"
 
 if GetLocale() == "zhCN" then
-	L["Explosive Orbs"] = "邪能炸药"
+	L["Explosive Orbs"] = "爆炸物"
 	L["Number of player spells"] = "技能次数"
 end
 
@@ -80,7 +80,7 @@ state_frame:RegisterEvent("CHALLENGE_MODE_START")
 state_frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 state_frame:SetScript("OnEvent", function()
     local level, affixes, wasEnergized = C_ChallengeMode.GetActiveKeystoneInfo();
-    if affixes and (affixes[1] == 13 or affixes[2] == 13) then
+    if affixes and (affixes[2] == 13 or affixes[3] == 13) then
         RegisterOrUnregisterUnitTargetEvent(true)
         in_challenge_with_orb = true
     else
